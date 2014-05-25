@@ -2,21 +2,24 @@
 //  AXAppDelegate.m
 //  StretchableHeaderTabViewExample
 //
-//  Created by Hiroki Akiyama on 2014/05/25.
-//  Copyright (c) 2014年 Hiroki Akiyama. All rights reserved.
-//
 
 #import "AXAppDelegate.h"
+#import "AXSampleListViewController.h"
 
 @implementation AXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  // Override point for customization after application launch.
+  
+  AXSampleListViewController *sampleListViewCon = [[AXSampleListViewController alloc] init];
+  
+  UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:sampleListViewCon];
+  self.window.rootViewController = navCon;
+  
+  [self.window makeKeyAndVisible];
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -27,7 +30,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
   // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
