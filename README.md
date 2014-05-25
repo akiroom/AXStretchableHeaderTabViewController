@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/cocoapods/l/AXStretchableHeaderTabViewController.svg?style=flat)](http://cocoadocs.org/docsets/AXStretchableHeaderTabViewController)
 [![Platform](https://img.shields.io/cocoapods/p/AXStretchableHeaderTabViewController.svg?style=flat)](http://cocoadocs.org/docsets/AXStretchableHeaderTabViewController)
 
+Stretchable header view + Horizontal swipable tab view
+
 ## Usage
 
 To run the example project; clone the repo, and run `pod install` from the Example directory first.
@@ -24,4 +26,3 @@ Hiroki Akiyama, aki-hiroki@nifty.com
 ## License
 
 AXStretchableHeaderTabViewController is available under the MIT license. See the LICENSE file for more info.
-
