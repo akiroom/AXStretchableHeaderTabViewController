@@ -39,17 +39,6 @@
   [self.view addSubview:_tabBar];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-  [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-  [super viewDidAppear:animated];
-  //  UIView *v = self.containerView;
-}
-
 - (void)viewWillDisappear:(BOOL)animated
 {
   [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
@@ -69,6 +58,24 @@
     CGRectGetWidth(self.view.bounds), _headerView.maximumOfHeight + _containerView.contentInset.top
   }];
   
+  
+  UIScrollView *scrollView = (id)[self selectedViewController].view;
+  if ([scrollView isKindOfClass:[UIScrollView class]]) {
+    CGPoint contentOffset = scrollView.contentOffset;
+//    NSLog(@"%d, %d, %d", (int)contentOffset.y, (int)_headerView.maximumOfHeight, (int)scrollView.contentInset.top);
+    CGFloat headerViewHeight = _headerView.maximumOfHeight - (contentOffset.y + scrollView.contentInset.top);
+    headerViewHeight = MAX(headerViewHeight, _headerView.minimumOfHeight);
+//    headerViewHeight = MIN(headerViewHeight, _headerView.maximumOfHeight);
+    NSLog(@"★%f", headerViewHeight);
+    [_headerView setFrame:(CGRect){
+      _headerView.frame.origin,
+      CGRectGetWidth(_headerView.frame), headerViewHeight + _containerView.contentInset.top
+    }];
+  }
+  
+  
+  
+  
   [_tabBar sizeToFit];
   [_tabBar setFrame:(CGRect){
     0.0, CGRectGetMaxY(_headerView.frame),
@@ -86,17 +93,6 @@
 
 #pragma mark - Property
 
-- (void)setHeaderView:(AXStretchableHeaderView *)headerView
-{
-  if (_headerView != headerView) {
-    [_headerView removeFromSuperview];
-    _headerView = headerView;
-    _headerViewTopConstraintConstant = _headerView.topConstraint.constant;
-    [self.view addSubview:_headerView];
-    [self.view setNeedsLayout];
-  }
-}
-
 - (UIViewController *)selectedViewController
 {
   return _viewControllers[_selectedIndex];
@@ -110,6 +106,16 @@
   }
   if (newIndex != _selectedIndex) {
     _selectedIndex = newIndex;
+  }
+}
+
+- (void)setHeaderView:(AXStretchableHeaderView *)headerView
+{
+  if (_headerView != headerView) {
+    [_headerView removeFromSuperview];
+    _headerView = headerView;
+    _headerViewTopConstraintConstant = _headerView.topConstraint.constant;
+    [self.view addSubview:_headerView];
   }
 }
 
@@ -130,10 +136,8 @@
     NSMutableArray *tabItems = [NSMutableArray array];
     [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
       [_containerView addSubview:viewController.view];
-      if (self.isViewLoaded) {
-        [viewController.view addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-        [self addChildViewController:viewController];
-      }
+      [viewController.view addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+      [self addChildViewController:viewController];
       [tabItems addObject:viewController.tabBarItem];
     }];
     [_tabBar setItems:tabItems];
@@ -154,16 +158,16 @@
   CGSize size = _containerView.bounds.size;
   
   UIEdgeInsets contentInsets = UIEdgeInsetsMake(_headerView.maximumOfHeight + CGRectGetHeight(_tabBar.bounds), 0.0, _containerView.contentInset.top, 0.0);
-  NSLog(@"%@, %@", NSStringFromCGSize(size), NSStringFromUIEdgeInsets(contentInsets));
   
+  // Resize sub view controllers
   [_viewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
     if ([obj isKindOfClass:[UIViewController class]]) {
       UIViewController *viewController = obj;
       CGRect newFrame = (CGRect){size.width * idx, 0.0, size};
-      if ([viewController.view respondsToSelector:@selector(setContentInset:)]) {
-        [viewController.view setFrame:newFrame];
-        [(id)viewController.view setContentInset:contentInsets];
-        NSLog(@"--- %@", NSStringFromCGRect(viewController.view.frame));
+      if ([viewController.view isKindOfClass:[UIScrollView class]]) {
+        UIScrollView *scrollView = (id)viewController.view;
+        [scrollView setFrame:newFrame];
+        [scrollView setContentInset:contentInsets];
       } else {
         [viewController.view setFrame:UIEdgeInsetsInsetRect(newFrame, contentInsets)];
       }
@@ -176,20 +180,25 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-  return;
   UIViewController *selectedViewController = [self selectedViewController];
   if ([keyPath isEqualToString:@"contentOffset"]) {
     if ([selectedViewController view] != object &&
         [[selectedViewController view] isKindOfClass:[UIScrollView class]] == NO) {
       return;
     }
-    UIScrollView *scrollView = (id)selectedViewController.view;
+    NSLog(@"-----");
+    NSLog(@"%@", NSStringFromCGRect(_headerView.frame));
     
-    CGPoint contentOffset = [object contentOffset];
-    CGFloat width = CGRectGetWidth(self.view.frame);
+    // TODO: remove this dirty hack: call viewDidLayoutSubviews:
+    [_headerView setFrame:CGRectZero];
     
-    CGFloat headerHeight = _headerView.maximumOfHeight - contentOffset.y;
-    NSLog(@"★%f", scrollView.contentInset.top);
+    [_tabBar sizeToFit];
+    [_tabBar setFrame:(CGRect){
+      0.0, CGRectGetMaxY(_headerView.frame),
+      _tabBar.frame.size
+    }];
+
+    
 //    NSLog(@"%f -> %f", contentOffset.y, headerHeight);
 //    NSLog(@"%f", -contentOffset.y + scrollView.contentInset.top);
 //    NSLog(@"%d -> %d", (int)-contentOffset.y, (int)headerHeight);
@@ -254,7 +263,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-  return;
   if (scrollView.isDragging) {
     NSUInteger numberOfViewControllers = _viewControllers.count;
     _selectedIndex = round(scrollView.contentOffset.x / scrollView.contentSize.width * numberOfViewControllers);
