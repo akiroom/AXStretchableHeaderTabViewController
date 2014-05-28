@@ -60,6 +60,6 @@
         </view>
     </objects>
     <resources>
-        <image name="sample-photo.jpg" width="960" height="720"/>
+        <image name="sample-photo.jpg" width="960" height="460"/>
     </resources>
 </document>
