@@ -14,6 +14,7 @@ typedef enum : NSUInteger {
 
 @protocol AXTabBarDelegate <NSObject>
 @optional
+- (BOOL)tabBar:(AXTabBar *)tabBar shouldSelectItem:(UITabBarItem *)item;
 - (void)tabBar:(AXTabBar *)tabBar didSelectItem:(UITabBarItem *)item;
 @end
 
@@ -21,5 +22,7 @@ typedef enum : NSUInteger {
 @property (copy, nonatomic) NSArray *items;
 @property (assign, nonatomic) UITabBarItem *selectedItem;
 @property (assign, nonatomic) id<AXTabBarDelegate> delegate;
-@property (nonatomic) AXTabBarStyle tabBarStyle;
+
+// TODO: implement this style option.
+//@property (nonatomic) AXTabBarStyle tabBarStyle;
 @end

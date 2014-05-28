@@ -15,6 +15,7 @@
 @implementation AXTabBar {
   NSArray *_items;
   CALayer *_indicatorLayer;
+  AXTabBarStyle _tabBarStyle;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -152,30 +153,22 @@
 
 - (void)touchesButton:(UIButton *)sender
 {
-  [sender setHighlighted:YES];
   NSUInteger index = [_tabBarItemButtons indexOfObject:sender];
   if (index != NSNotFound) {
     UITabBarItem *selectedItem = _items[index];
-    [self setSelectedItem:selectedItem];
-    if ([_delegate respondsToSelector:@selector(tabBar:didSelectItem:)]) {
-      [_delegate tabBar:self didSelectItem:selectedItem];
+    
+    BOOL shouldSelectItem = YES;
+    if ([_delegate respondsToSelector:@selector(tabBar:shouldSelectItem:)]) {
+      shouldSelectItem = [_delegate tabBar:self shouldSelectItem:selectedItem];
     }
-  }
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-  UITouch *touch = [touches anyObject];
-  [_tabBarItemButtons enumerateObjectsUsingBlock:^(UIView *button, NSUInteger idx, BOOL *stop) {
-    if (CGRectContainsPoint(button.bounds, [touch locationInView:button])) {
-      UITabBarItem *selectedItem = _items[idx];
+    if (shouldSelectItem) {
+      [sender setHighlighted:YES];
       [self setSelectedItem:selectedItem];
       if ([_delegate respondsToSelector:@selector(tabBar:didSelectItem:)]) {
         [_delegate tabBar:self didSelectItem:selectedItem];
       }
-      return;
     }
-  }];
-  [self.nextResponder touchesBegan:touches withEvent:event];
+  }
 }
+
 @end

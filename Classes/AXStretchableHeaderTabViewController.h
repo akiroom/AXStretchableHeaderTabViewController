@@ -23,5 +23,7 @@
 @property (nonatomic) BOOL shouldBounceHeaderView;
 
 // Layout
+- (void)layoutHeaderViewAndTabBar;
 - (void)layoutViewControllers;
+- (void)layoutSubViewControllerToSelectedViewController;
 @end
