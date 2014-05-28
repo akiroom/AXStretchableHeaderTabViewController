@@ -20,7 +20,6 @@
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-    // Custom initialization
     AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
     self.headerView = headerView;
     

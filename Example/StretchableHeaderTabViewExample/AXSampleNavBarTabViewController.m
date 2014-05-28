@@ -22,7 +22,8 @@
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-    // Custom initialization
+    self.title = @"Sample";
+    
     AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
     self.headerView = headerView;
     

@@ -55,7 +55,8 @@
   [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
   [cell.textLabel setText:
    @[@"Sample",
-     @"Sample with navigation bar"][indexPath.row]];
+     @"Sample with no NavigationBar",
+     ][indexPath.row]];
   return cell;
 }
 
@@ -63,20 +64,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if (indexPath.row == 0) {
-    AXSampleTabViewController *tabViewCon = [[AXSampleTabViewController alloc] init];
-    [self.navigationController pushViewController:tabViewCon animated:YES];
-  } else {
-//    AXDummyViewController *dummyViewCon = [[AXDummyViewController alloc] init];
-//    [self.navigationController pushViewController:dummyViewCon animated:YES];
-    
-//    AXStretchableHeaderTabViewController *test = [[AXStretchableHeaderTabViewController alloc] init];
-//    [self.navigationController pushViewController:test animated:YES];
-    
-    AXSampleNavBarTabViewController *tabViewCon = [[AXSampleNavBarTabViewController alloc] init];
-    [self.navigationController pushViewController:tabViewCon animated:YES];
+  switch (indexPath.row) {
+    case 0: {
+      AXSampleNavBarTabViewController *tabViewCon = [[AXSampleNavBarTabViewController alloc] init];
+      [self.navigationController pushViewController:tabViewCon animated:YES];
+      break;
+    }
+    case 1: {
+      AXSampleTabViewController *tabViewCon = [[AXSampleTabViewController alloc] init];
+      [self.navigationController pushViewController:tabViewCon animated:YES];
+      break;
+    }
+    default:
+      break;
   }
-  
 }
 
 @end
