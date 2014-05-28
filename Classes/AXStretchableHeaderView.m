@@ -11,17 +11,30 @@
 {
   self = [super initWithFrame:frame];
   if (self) {
-    self.clipsToBounds = YES;
-    
-    _minimumOfHeight = 64.0;
-    _maximumOfHeight = 128.0;
+    [self configureAXStretchableHeaderView];
   }
   return self;
 }
 
-- (NSArray *)interactiveSubviews
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-  return @[];
+  if (self = [super initWithCoder:aDecoder]) {
+    [self configureAXStretchableHeaderView];
+  }
+  return self;
+}
+
+- (void)awakeFromNib
+{
+  [super awakeFromNib];
+  
+}
+
+- (void)configureAXStretchableHeaderView
+{
+  self.clipsToBounds = YES;
+  _minimumOfHeight = 64.0;
+  _maximumOfHeight = 128.0;
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
@@ -31,11 +44,16 @@
     return nil;
   }
   
-  if ([[self interactiveSubviews] indexOfObject:targetView] == NSNotFound) {
+  if ([[[self headerDelegate] interactiveSubviewsInStretchableHeaderView:self] indexOfObject:targetView] == NSNotFound) {
     return nil;
   } else {
     return targetView;
   }
+}
+
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
 }
 
 @end

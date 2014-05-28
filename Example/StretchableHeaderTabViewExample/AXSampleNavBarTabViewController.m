@@ -23,14 +23,8 @@
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
     // Custom initialization
-    UINib *nib = [UINib nibWithNibName:NSStringFromClass([AXSampleHeaderView class]) bundle:nil];
-    AXSampleHeaderView *headerView = [[nib instantiateWithOwner:self options:nil] firstObject];
-    headerView.textLabel.text = @"Italy Photo";
-    headerView.detailTextLabel.text = @"The Duomo in Firenze";
-    headerView.imageView.image = [UIImage imageNamed:@"sample-photo.jpg"];
-    headerView.minimumOfHeight = 64.0;
-    headerView.maximumOfHeight =  120.0;
-    [headerView.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
+    headerView.headerDelegate = headerView;
     self.headerView = headerView;
     
     AXSub1TableViewController *sub1ViewCon = [[AXSub1TableViewController alloc] init];
@@ -46,6 +40,38 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  self.headerView.minimumOfHeight = 64.0;
+  self.headerView.maximumOfHeight =  180.0;
+
+//  AXSampleHeaderViewController *headerViewController = (id)self.headerViewController;
+//  headerView.textLabel.text = @"Italy Photo";
+//  headerView.detailTextLabel.text = @"The Duomo in Firenze";
+//  headerViewController.imageView.image = [UIImage imageNamed:@"sample-photo.jpg"];
+//  headerViewController.imageView.clipsToBounds = YES;
+//  [headerView.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+  [super viewDidAppear:animated];
+//  AXSampleHeaderView *sample = (id)self.headerView;
+//  [self.headerView setNeedsLayout];
+//  [self.headerView setNeedsUpdateConstraints];
+//  [self.headerView removeConstraints:self.headerView.constraints];
+//  [sample.imageView setAlpha:0.5];
+//  [sample.imageView setFrame:(CGRect){64, 64, 40.0, 40.0}];
+//  UIView *test = [[UIView alloc] initWithFrame:(CGRect){120, 120, 30, 30}];
+//  test.backgroundColor = [UIColor cyanColor];
+//  [sample addSubview:test];
+//  NSLog(@"%@", sample.imageView);
+//  //  [self.headerView layoutSubviews];
+//  NSLog(@"ここから");
+//  NSLog(@"%@", NSStringFromCGRect(self.headerView.frame));
+//  [self.headerView.constraints enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//    NSLog(@"%@", obj);
+//  }];
+//  NSLog(@"ここまで");
 }
 
 - (void)didReceiveMemoryWarning

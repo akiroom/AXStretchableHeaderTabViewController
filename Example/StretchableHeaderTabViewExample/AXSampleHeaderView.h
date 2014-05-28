@@ -2,13 +2,15 @@
 //  AXSampleHeaderView.h
 //  StretchableHeaderTabViewExample
 //
+//  Created by Hiroki Akiyama on 2014/05/28.
+//  Copyright (c) 2014年 Hiroki Akiyama. All rights reserved.
+//
 
-#import <AXStretchableHeaderTabViewController/AXStretchableHeaderView.h>
+#import "AXStretchableHeaderView.h"
 
-@interface AXSampleHeaderView : AXStretchableHeaderView
+@interface AXSampleHeaderView : AXStretchableHeaderView <AXStretchableHeaderViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *detailTextLabel;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

@@ -5,32 +5,33 @@
 
 #import "AXSampleHeaderView.h"
 
-@interface AXSampleHeaderView ()
-
-@end
-
-@implementation AXSampleHeaderView
+@implementation AXSampleHeaderView {
+  NSArray *_interactiveSubviews;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
-  UINib *nib = [UINib nibWithNibName:NSStringFromClass([AXSampleHeaderView class]) bundle:nil];
+  UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
   self = [[nib instantiateWithOwner:self options:nil] firstObject];
   if (self) {
-    
+//    [self setFrame:frame];
+    _interactiveSubviews = @[self.backButton];
   }
   return self;
 }
-//- (id)initWithFrame:(CGRect)frame
-//{
-//  UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
-//  self = [nib instantiateWithOwner:nil options:nil][0];
-//  [self setFrame:frame];
-//  return self;
-//}
 
-- (NSArray *)interactiveSubviews
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
+
+- (NSArray *)interactiveSubviewsInStretchableHeaderView:(AXStretchableHeaderView *)stretchableHeaderView
 {
-  return @[_backButton];
+  return _interactiveSubviews;
 }
 
 @end

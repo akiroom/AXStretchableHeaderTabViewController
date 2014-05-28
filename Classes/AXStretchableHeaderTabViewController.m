@@ -12,7 +12,9 @@
 
 @end
 
-@implementation AXStretchableHeaderTabViewController
+@implementation AXStretchableHeaderTabViewController {
+  CGFloat _headerViewTopConstraintConstant;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,11 +32,6 @@
   return self;
 }
 
-- (void)awakeFromNib
-{
-  [super awakeFromNib];
-}
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -45,19 +42,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
-//  [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
-//    [viewController.view addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-//    [self addChildViewController:viewController];
-//  }];
-//  [_containerView setDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
   [super viewDidAppear:animated];
   //  UIView *v = self.containerView;
-  NSLog(@"%@", NSStringFromCGRect(self.containerView.frame));
-  NSLog(@"%@", NSStringFromUIEdgeInsets(self.containerView.contentInset));
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -73,11 +63,11 @@
 {
   [super viewDidLayoutSubviews];
   
+  _headerView.topConstraint.constant = _headerViewTopConstraintConstant + _containerView.contentInset.top;
   [_headerView setFrame:(CGRect){
-    0.0, _containerView.contentInset.top,
-    CGRectGetWidth(self.view.bounds), _headerView.maximumOfHeight
+    0.0, 0.0,
+    CGRectGetWidth(self.view.bounds), _headerView.maximumOfHeight + _containerView.contentInset.top
   }];
-  NSLog(@"%@", NSStringFromCGRect(_headerView.frame));
   
   [_tabBar sizeToFit];
   [_tabBar setFrame:(CGRect){
@@ -94,16 +84,18 @@
   // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Property
+
 - (void)setHeaderView:(AXStretchableHeaderView *)headerView
 {
   if (_headerView != headerView) {
     [_headerView removeFromSuperview];
     _headerView = headerView;
-    [self.view addSubview:headerView];
+    _headerViewTopConstraintConstant = _headerView.topConstraint.constant;
+    [self.view addSubview:_headerView];
+    [self.view setNeedsLayout];
   }
 }
-
-#pragma mark - Property
 
 - (UIViewController *)selectedViewController
 {

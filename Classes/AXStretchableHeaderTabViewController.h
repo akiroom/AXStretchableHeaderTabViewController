@@ -17,10 +17,9 @@
 @property (readwrite, nonatomic) UIViewController *selectedViewController;
 @property (copy, nonatomic) NSArray *viewControllers;
 
-@property (weak, nonatomic) AXStretchableHeaderView *headerView;
+@property (weak, nonatomic) IBOutlet AXStretchableHeaderView *headerView;
 @property (readonly, nonatomic) AXTabBar *tabBar;
-//@property (readonly, nonatomic) UIScrollView *containerView;
-@property (unsafe_unretained, nonatomic) IBOutlet UIScrollView *containerView;
+@property (weak, nonatomic) IBOutlet UIScrollView *containerView;
 @property (nonatomic) BOOL shouldBounceHeaderView;
 
 // Layout
