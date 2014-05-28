@@ -148,9 +148,8 @@
     }];
     
     // Set scroll view indicator insets
-    // TODO: Remove this magic number 20.0
     [scrollView setScrollIndicatorInsets:
-     UIEdgeInsetsMake(CGRectGetMaxY(_headerView.frame) - 20.0, 0.0, scrollView.contentInset.bottom, 0.0)];
+     UIEdgeInsetsMake(CGRectGetMaxY(_tabBar.frame) - _containerView.contentInset.top, 0.0, scrollView.contentInset.bottom, 0.0)];
   } else {
     // Set header view frame
     [_headerView setFrame:(CGRect){
