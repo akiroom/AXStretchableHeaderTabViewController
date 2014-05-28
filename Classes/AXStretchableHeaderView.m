@@ -45,7 +45,7 @@
     return nil;
   }
   
-  if ([[[self headerDelegate] interactiveSubviewsInStretchableHeaderView:self] indexOfObject:targetView] == NSNotFound) {
+  if ([[[self delegate] interactiveSubviewsInStretchableHeaderView:self] indexOfObject:targetView] == NSNotFound) {
     return nil;
   } else {
     return targetView;

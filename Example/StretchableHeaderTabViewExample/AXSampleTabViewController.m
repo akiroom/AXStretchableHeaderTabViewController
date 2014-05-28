@@ -22,7 +22,6 @@
   if (self) {
     // Custom initialization
     AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
-    headerView.headerDelegate = headerView;
     self.headerView = headerView;
     
     AXSub1TableViewController *sub1ViewCon = [[AXSub1TableViewController alloc] init];

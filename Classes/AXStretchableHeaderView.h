@@ -12,7 +12,7 @@
 @end
 
 @interface AXStretchableHeaderView : UIView
-@property (nonatomic) id<AXStretchableHeaderViewDelegate> headerDelegate;
+@property (nonatomic) id<AXStretchableHeaderViewDelegate> delegate;
 @property (nonatomic) CGFloat minimumOfHeight;
 @property (nonatomic) CGFloat maximumOfHeight;
 @property (nonatomic) BOOL bounces;
