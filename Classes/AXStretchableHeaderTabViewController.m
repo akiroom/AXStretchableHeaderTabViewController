@@ -261,6 +261,11 @@
           }
         } else {
           // Not scroll view
+          CGFloat y = CGRectGetMaxY(_tabBar.frame) - _containerView.contentInset.top;
+          [targetView setFrame:(CGRect){
+            CGRectGetMinX(targetView.frame), y,
+            CGRectGetMinX(targetView.frame), CGRectGetHeight(_containerView.frame) - y
+          }];
         }
       }];
     }
