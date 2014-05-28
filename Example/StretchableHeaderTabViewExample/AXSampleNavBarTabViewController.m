@@ -1,30 +1,35 @@
 //
-//  AXSampleTabViewController.m
+//  AXSampleNavBarTabViewController.m
 //  StretchableHeaderTabViewExample
 //
+//  Created by Hiroki Akiyama on 2014/05/26.
+//  Copyright (c) 2014年 Hiroki Akiyama. All rights reserved.
+//
 
-#import "AXSampleTabViewController.h"
+#import "AXSampleNavBarTabViewController.h"
 #import "AXSub1TableViewController.h"
 #import "AXSub2TableViewController.h"
 #import "AXSub3ViewController.h"
 #import "AXSampleHeaderView.h"
-@interface AXSampleTabViewController ()
+
+@interface AXSampleNavBarTabViewController ()
 
 @end
 
-@implementation AXSampleTabViewController
+@implementation AXSampleNavBarTabViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
     // Custom initialization
-    AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([AXSampleHeaderView class]) bundle:nil];
+    AXSampleHeaderView *headerView = [[nib instantiateWithOwner:self options:nil] firstObject];
     headerView.textLabel.text = @"Italy Photo";
     headerView.detailTextLabel.text = @"The Duomo in Firenze";
     headerView.imageView.image = [UIImage imageNamed:@"sample-photo.jpg"];
     headerView.minimumOfHeight = 64.0;
-    headerView.maximumOfHeight =  240.0;
+    headerView.maximumOfHeight =  120.0;
     [headerView.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     self.headerView = headerView;
     
@@ -41,24 +46,11 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
 }
 
 - (void)didReceiveMemoryWarning
 {
   [super didReceiveMemoryWarning];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-  [super viewWillAppear:animated];
-  [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-  [super viewWillDisappear:animated];
-  [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)back:(id)sender

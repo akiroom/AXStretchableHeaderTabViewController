@@ -24,10 +24,10 @@
 		754814E319323ABF00CFD342 /* AXSub2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754814E219323ABF00CFD342 /* AXSub2TableViewController.m */; };
 		754814E619323ADF00CFD342 /* AXSub3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754814E519323ADF00CFD342 /* AXSub3ViewController.m */; };
 		754814FA19323CC800CFD342 /* AXSampleTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754814F819323CC800CFD342 /* AXSampleTabViewController.m */; };
-		754814FD19323F7D00CFD342 /* AXSampleTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 754814FC19323F7D00CFD342 /* AXSampleTabViewController.xib */; };
 		75481500193240A800CFD342 /* AXSampleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 754814FF193240A800CFD342 /* AXSampleHeaderView.m */; };
 		75481502193241A800CFD342 /* sample-photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75481501193241A800CFD342 /* sample-photo.jpg */; };
 		75481504193242A700CFD342 /* AXSampleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75481503193242A700CFD342 /* AXSampleHeaderView.xib */; };
+		757BA7B219338CC3006ADDAF /* AXSampleNavBarTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 757BA7B119338CC3006ADDAF /* AXSampleNavBarTabViewController.m */; };
 		7777FECBD35D45B6935E3121 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E2F7A94B9542CEA1F1CC2F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -68,11 +68,12 @@
 		754814E519323ADF00CFD342 /* AXSub3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSub3ViewController.m; sourceTree = "<group>"; };
 		754814F719323CC800CFD342 /* AXSampleTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleTabViewController.h; sourceTree = "<group>"; };
 		754814F819323CC800CFD342 /* AXSampleTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleTabViewController.m; sourceTree = "<group>"; };
-		754814FC19323F7D00CFD342 /* AXSampleTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AXSampleTabViewController.xib; sourceTree = "<group>"; };
 		754814FE193240A800CFD342 /* AXSampleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleHeaderView.h; sourceTree = "<group>"; };
 		754814FF193240A800CFD342 /* AXSampleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleHeaderView.m; sourceTree = "<group>"; };
 		75481501193241A800CFD342 /* sample-photo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sample-photo.jpg"; sourceTree = "<group>"; };
 		75481503193242A700CFD342 /* AXSampleHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AXSampleHeaderView.xib; sourceTree = "<group>"; };
+		757BA7B019338CC3006ADDAF /* AXSampleNavBarTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleNavBarTabViewController.h; sourceTree = "<group>"; };
+		757BA7B119338CC3006ADDAF /* AXSampleNavBarTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleNavBarTabViewController.m; sourceTree = "<group>"; };
 		77E2F7A94B9542CEA1F1CC2F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE287AB09714778AADFE7FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,12 +203,13 @@
 		754814E719323B1500CFD342 /* Sample Tab View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				754814F719323CC800CFD342 /* AXSampleTabViewController.h */,
-				754814F819323CC800CFD342 /* AXSampleTabViewController.m */,
-				754814FC19323F7D00CFD342 /* AXSampleTabViewController.xib */,
 				754814FE193240A800CFD342 /* AXSampleHeaderView.h */,
 				754814FF193240A800CFD342 /* AXSampleHeaderView.m */,
 				75481503193242A700CFD342 /* AXSampleHeaderView.xib */,
+				757BA7B019338CC3006ADDAF /* AXSampleNavBarTabViewController.h */,
+				757BA7B119338CC3006ADDAF /* AXSampleNavBarTabViewController.m */,
+				754814F719323CC800CFD342 /* AXSampleTabViewController.h */,
+				754814F819323CC800CFD342 /* AXSampleTabViewController.m */,
 				754814DD19323A9400CFD342 /* Sub View Controllers */,
 			);
 			name = "Sample Tab View Controller";
@@ -294,7 +296,6 @@
 				75481502193241A800CFD342 /* sample-photo.jpg in Resources */,
 				75481504193242A700CFD342 /* AXSampleHeaderView.xib in Resources */,
 				754814A9193234F400CFD342 /* InfoPlist.strings in Resources */,
-				754814FD19323F7D00CFD342 /* AXSampleTabViewController.xib in Resources */,
 				754814B1193234F400CFD342 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +352,7 @@
 				754814E319323ABF00CFD342 /* AXSub2TableViewController.m in Sources */,
 				754814FA19323CC800CFD342 /* AXSampleTabViewController.m in Sources */,
 				754814E019323AA400CFD342 /* AXSub1TableViewController.m in Sources */,
+				757BA7B219338CC3006ADDAF /* AXSampleNavBarTabViewController.m in Sources */,
 				754814AF193234F400CFD342 /* AXAppDelegate.m in Sources */,
 				754814E619323ADF00CFD342 /* AXSub3ViewController.m in Sources */,
 				75481500193240A800CFD342 /* AXSampleHeaderView.m in Sources */,

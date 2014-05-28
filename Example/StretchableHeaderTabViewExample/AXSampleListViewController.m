@@ -4,7 +4,9 @@
 //
 
 #import "AXSampleListViewController.h"
+#import <AXStretchableHeaderTabViewController/AXDummyViewController.h>
 #import "AXSampleTabViewController.h"
+#import "AXSampleNavBarTabViewController.h"
 
 @interface AXSampleListViewController ()
 
@@ -61,8 +63,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  AXSampleTabViewController *tabViewCon = [[AXSampleTabViewController alloc] init];
-  [self.navigationController pushViewController:tabViewCon animated:YES];
+  if (indexPath.row == 0) {
+    AXSampleTabViewController *tabViewCon = [[AXSampleTabViewController alloc] init];
+    [self.navigationController pushViewController:tabViewCon animated:YES];
+  } else {
+//    AXDummyViewController *dummyViewCon = [[AXDummyViewController alloc] init];
+//    [self.navigationController pushViewController:dummyViewCon animated:YES];
+    
+//    AXStretchableHeaderTabViewController *test = [[AXStretchableHeaderTabViewController alloc] init];
+//    [self.navigationController pushViewController:test animated:YES];
+    
+    AXSampleNavBarTabViewController *tabViewCon = [[AXSampleNavBarTabViewController alloc] init];
+    [self.navigationController pushViewController:tabViewCon animated:YES];
+  }
+  
 }
 
 @end

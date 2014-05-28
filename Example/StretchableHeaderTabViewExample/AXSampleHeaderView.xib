@@ -33,24 +33,37 @@
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJO-Kb-7yR">
+                    <rect key="frame" x="265" y="196" width="35" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Back">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="0.5" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Z0W-bv-eAv" firstAttribute="top" secondItem="P8k-CT-V4D" secondAttribute="bottom" constant="8" id="Adv-PQ-4IK"/>
                 <constraint firstAttribute="trailing" secondItem="Z0W-bv-eAv" secondAttribute="trailing" constant="16" id="Jf6-YU-Voo"/>
+                <constraint firstItem="LJO-Kb-7yR" firstAttribute="top" secondItem="P8k-CT-V4D" secondAttribute="bottom" constant="4" id="NrN-nV-e3c"/>
                 <constraint firstItem="P8k-CT-V4D" firstAttribute="top" secondItem="Q7o-i4-PtR" secondAttribute="bottom" constant="8" id="O0e-yP-ekm"/>
                 <constraint firstAttribute="bottom" secondItem="Z0W-bv-eAv" secondAttribute="bottom" constant="16" id="Syf-MN-F8J"/>
                 <constraint firstItem="Z0W-bv-eAv" firstAttribute="top" secondItem="P8k-CT-V4D" secondAttribute="bottom" constant="8" id="cTm-BC-YvO"/>
                 <constraint firstAttribute="trailing" secondItem="Q7o-i4-PtR" secondAttribute="trailing" constant="16" id="csz-Bv-gBc"/>
                 <constraint firstItem="P8k-CT-V4D" firstAttribute="top" secondItem="Q7o-i4-PtR" secondAttribute="bottom" constant="8" id="hMy-Pa-clp"/>
                 <constraint firstItem="P8k-CT-V4D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="iOY-I0-btC"/>
+                <constraint firstAttribute="bottom" secondItem="LJO-Kb-7yR" secondAttribute="bottom" constant="11" id="q9o-un-Ffx"/>
                 <constraint firstAttribute="trailing" secondItem="P8k-CT-V4D" secondAttribute="trailing" constant="16" id="rRT-7Q-TH1"/>
                 <constraint firstItem="Z0W-bv-eAv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="v4J-zO-Ezr"/>
                 <constraint firstItem="Q7o-i4-PtR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="vui-vU-kq8"/>
                 <constraint firstItem="Q7o-i4-PtR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xVm-fs-3Eo"/>
+                <constraint firstAttribute="trailing" secondItem="LJO-Kb-7yR" secondAttribute="trailing" constant="20" id="xZy-vx-7BZ"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backButton" destination="LJO-Kb-7yR" id="UxL-vA-3yz"/>
+            </connections>
         </view>
     </objects>
 </document>

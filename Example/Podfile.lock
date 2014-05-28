@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  AXStretchableHeaderTabViewController: 99b44a27057f9b36576ed4087104bb538c6b105c
+  AXStretchableHeaderTabViewController: 0acc40345e74bbedd94bdee7bd98ee0b0514b022
 
 COCOAPODS: 0.33.1

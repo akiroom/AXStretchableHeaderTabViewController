@@ -11,15 +11,16 @@
 #import "AXTabBar.h"
 
 @interface AXStretchableHeaderTabViewController : UIViewController
-@property (assign, nonatomic) id<UITabBarControllerDelegate> delegate;
+//@property (weak, nonatomic) id<UITabBarControllerDelegate> delegate;
 
 @property (nonatomic) NSUInteger selectedIndex;
-@property (assign, nonatomic) UIViewController *selectedViewController;
+@property (readwrite, nonatomic) UIViewController *selectedViewController;
 @property (copy, nonatomic) NSArray *viewControllers;
 
-@property (strong, nonatomic) AXStretchableHeaderView *headerView;
+@property (weak, nonatomic) AXStretchableHeaderView *headerView;
 @property (readonly, nonatomic) AXTabBar *tabBar;
-@property (readonly, nonatomic) UIScrollView *containerView;
+//@property (readonly, nonatomic) UIScrollView *containerView;
+@property (unsafe_unretained, nonatomic) IBOutlet UIScrollView *containerView;
 @property (nonatomic) BOOL shouldBounceHeaderView;
 
 // Layout
