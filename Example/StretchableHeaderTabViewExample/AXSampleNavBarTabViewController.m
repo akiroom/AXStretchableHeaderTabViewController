@@ -47,6 +47,7 @@
   AXSampleHeaderView *headerView = (id)self.headerView;
   headerView.textLabel.text = @"The Duomo in Firenze";
   headerView.imageView.image = [UIImage imageNamed:@"sample-photo.jpg"];
+  [headerView.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning

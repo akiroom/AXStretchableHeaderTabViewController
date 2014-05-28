@@ -36,6 +36,7 @@
 {
   [super viewDidLoad];
   
+  [_tabBar sizeToFit];
   [self.view addSubview:_tabBar];
 }
 
@@ -58,30 +59,7 @@
     CGRectGetWidth(self.view.bounds), _headerView.maximumOfHeight + _containerView.contentInset.top
   }];
   
-  
-  UIScrollView *scrollView = (id)[self selectedViewController].view;
-  if ([scrollView isKindOfClass:[UIScrollView class]]) {
-    CGPoint contentOffset = scrollView.contentOffset;
-//    NSLog(@"%d, %d, %d", (int)contentOffset.y, (int)_headerView.maximumOfHeight, (int)scrollView.contentInset.top);
-    CGFloat headerViewHeight = _headerView.maximumOfHeight - (contentOffset.y + scrollView.contentInset.top);
-    headerViewHeight = MAX(headerViewHeight, _headerView.minimumOfHeight);
-//    headerViewHeight = MIN(headerViewHeight, _headerView.maximumOfHeight);
-    NSLog(@"★%f", headerViewHeight);
-    [_headerView setFrame:(CGRect){
-      _headerView.frame.origin,
-      CGRectGetWidth(_headerView.frame), headerViewHeight + _containerView.contentInset.top
-    }];
-  }
-  
-  
-  
-  
-  [_tabBar sizeToFit];
-  [_tabBar setFrame:(CGRect){
-    0.0, CGRectGetMaxY(_headerView.frame),
-    _tabBar.frame.size
-  }];
-  
+  [self layoutHeaderViewAndTabBar];
   [self layoutViewControllers];
 }
 
@@ -152,6 +130,35 @@
 
 #pragma mark - Layout
 
+- (void)layoutHeaderViewAndTabBar
+{
+  
+  // Header view
+  UIScrollView *scrollView = (id)[self selectedViewController].view;
+  if ([scrollView isKindOfClass:[UIScrollView class]]) {
+    CGFloat headerViewHeight = _headerView.maximumOfHeight - (scrollView.contentOffset.y + scrollView.contentInset.top);
+    headerViewHeight = MAX(headerViewHeight, _headerView.minimumOfHeight);
+    if (_headerView.bounces == NO) {
+      headerViewHeight = MIN(headerViewHeight, _headerView.maximumOfHeight);
+    }
+    [_headerView setFrame:(CGRect){
+      _headerView.frame.origin,
+      CGRectGetWidth(_headerView.frame), headerViewHeight + _containerView.contentInset.top
+    }];
+  } else {
+    [_headerView setFrame:(CGRect){
+      _headerView.frame.origin,
+      CGRectGetWidth(_headerView.frame), _headerView.maximumOfHeight + _containerView.contentInset.top
+    }];
+  }
+  
+  // Tab bar
+  [_tabBar setFrame:(CGRect){
+    0.0, CGRectGetMaxY(_headerView.frame),
+    _tabBar.frame.size
+  }];
+}
+
 - (void)layoutViewControllers
 {
   [self.view layoutSubviews];
@@ -190,13 +197,8 @@
     NSLog(@"%@", NSStringFromCGRect(_headerView.frame));
     
     // TODO: remove this dirty hack: call viewDidLayoutSubviews:
-    [_headerView setFrame:CGRectZero];
-    
-    [_tabBar sizeToFit];
-    [_tabBar setFrame:(CGRect){
-      0.0, CGRectGetMaxY(_headerView.frame),
-      _tabBar.frame.size
-    }];
+//    [_headerView setFrame:CGRectZero];
+    [self layoutHeaderViewAndTabBar];
 
     
 //    NSLog(@"%f -> %f", contentOffset.y, headerHeight);

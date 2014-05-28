@@ -15,5 +15,6 @@
 @property (nonatomic) id<AXStretchableHeaderViewDelegate> headerDelegate;
 @property (nonatomic) CGFloat minimumOfHeight;
 @property (nonatomic) CGFloat maximumOfHeight;
+@property (nonatomic) BOOL bounces;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @end

@@ -33,7 +33,8 @@
 - (void)configureAXStretchableHeaderView
 {
   self.clipsToBounds = YES;
-  _minimumOfHeight = 64.0;
+  _bounces = YES;
+  _minimumOfHeight = 44.0;
   _maximumOfHeight = 128.0;
 }
 
