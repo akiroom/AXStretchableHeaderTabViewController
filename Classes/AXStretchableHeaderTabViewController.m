@@ -132,10 +132,11 @@
 
 - (void)layoutHeaderViewAndTabBar
 {
-  
-  // Header view
+  // Get selected scroll view.
   UIScrollView *scrollView = (id)[self selectedViewController].view;
+  
   if ([scrollView isKindOfClass:[UIScrollView class]]) {
+    // Set header view frame
     CGFloat headerViewHeight = _headerView.maximumOfHeight - (scrollView.contentOffset.y + scrollView.contentInset.top);
     headerViewHeight = MAX(headerViewHeight, _headerView.minimumOfHeight);
     if (_headerView.bounces == NO) {
@@ -145,7 +146,13 @@
       _headerView.frame.origin,
       CGRectGetWidth(_headerView.frame), headerViewHeight + _containerView.contentInset.top
     }];
+    
+    // Set scroll view indicator insets
+    // TODO: Remove this magic number 20.0
+    [scrollView setScrollIndicatorInsets:
+     UIEdgeInsetsMake(CGRectGetMaxY(_headerView.frame) - 20.0, 0.0, scrollView.contentInset.bottom, 0.0)];
   } else {
+    // Set header view frame
     [_headerView setFrame:(CGRect){
       _headerView.frame.origin,
       CGRectGetWidth(_headerView.frame), _headerView.maximumOfHeight + _containerView.contentInset.top
@@ -157,6 +164,7 @@
     0.0, CGRectGetMaxY(_headerView.frame),
     _tabBar.frame.size
   }];
+  
 }
 
 - (void)layoutViewControllers
@@ -193,33 +201,7 @@
         [[selectedViewController view] isKindOfClass:[UIScrollView class]] == NO) {
       return;
     }
-    NSLog(@"-----");
-    NSLog(@"%@", NSStringFromCGRect(_headerView.frame));
-    
-    // TODO: remove this dirty hack: call viewDidLayoutSubviews:
-//    [_headerView setFrame:CGRectZero];
     [self layoutHeaderViewAndTabBar];
-
-    
-//    NSLog(@"%f -> %f", contentOffset.y, headerHeight);
-//    NSLog(@"%f", -contentOffset.y + scrollView.contentInset.top);
-//    NSLog(@"%d -> %d", (int)-contentOffset.y, (int)headerHeight);
-//    headerHeight = MAX(_headerView.minimumOfHeight, headerHeight);
-//    if (_shouldBounceHeaderView == NO) {
-//      headerHeight = MIN(_headerView.maximumOfHeight, headerHeight);
-//    }
-//    [_headerView setFrame:(CGRect){0.0, _containerView.contentInset.top, width, headerHeight}];
-//    NSLog(@"_headerView.frame: %d < %@ < %d", (int)_headerView.minimumOfHeight, NSStringFromCGRect(_headerView.frame), (int)_headerView.maximumOfHeight);
-//    [_tabBar setFrame:(CGRect){0.0, headerHeight, _tabBar.frame.size}];
-//    
-//    UIEdgeInsets scrollIndicatorInsets = UIEdgeInsetsMake(CGRectGetMaxY(_tabBar.frame) - CGRectGetMinY(_containerView.frame), 0.0,
-//                                                          0.0, 0.0);
-//    if ([selectedViewController isKindOfClass:[UIViewController class]]) {
-//      if ([selectedViewController.view isKindOfClass:[UIScrollView class]]) {
-//        UIScrollView *scrollView = (id)selectedViewController.view;
-//        [scrollView setScrollIndicatorInsets:scrollIndicatorInsets];
-//      }
-//    }
   }
 }
 
