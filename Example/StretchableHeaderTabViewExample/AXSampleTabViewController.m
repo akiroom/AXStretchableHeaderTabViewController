@@ -7,6 +7,7 @@
 #import "AXSub1TableViewController.h"
 #import "AXSub2TableViewController.h"
 #import "AXSub3ViewController.h"
+#import "AXSampleHeaderView.h"
 
 @interface AXSampleTabViewController ()
 
@@ -14,19 +15,15 @@
 
 @implementation AXSampleTabViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
     // Custom initialization
-//    AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
-//    headerView.textLabel.text = @"Italy Photo";
-//    headerView.detailTextLabel.text = @"The Duomo in Firenze";
-//    headerView.imageView.image = [UIImage imageNamed:@"sample-photo.jpg"];
-//    headerView.minimumOfHeight = 64.0;
-//    headerView.maximumOfHeight =  180.0;
-//    [headerView.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-//    self.headerView = headerView;
+    AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
+    headerView.headerDelegate = headerView;
+    self.headerView = headerView;
     
     AXSub1TableViewController *sub1ViewCon = [[AXSub1TableViewController alloc] init];
     AXSub2TableViewController *sub2ViewCon = [[AXSub2TableViewController alloc] init];
@@ -42,11 +39,14 @@
 {
   [super viewDidLoad];
   
-}
-
-- (void)didReceiveMemoryWarning
-{
-  [super didReceiveMemoryWarning];
+  self.headerView.minimumOfHeight = 64.0;
+  self.headerView.maximumOfHeight =  220.0;
+  
+  AXSampleHeaderView *headerView = (id)self.headerView;
+  headerView.textLabel.text = @"The Duomo in Firenze";
+  headerView.imageView.image = [UIImage imageNamed:@"sample-photo.jpg"];
+  [headerView.backButton setTitle:@"back" forState:UIControlStateNormal];
+  [headerView.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillAppear:(BOOL)animated

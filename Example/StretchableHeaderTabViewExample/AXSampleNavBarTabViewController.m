@@ -42,7 +42,7 @@
   [super viewDidLoad];
   
   self.headerView.minimumOfHeight = 64.0;
-  self.headerView.maximumOfHeight =  180.0;
+  self.headerView.maximumOfHeight =  220.0;
 
   AXSampleHeaderView *headerView = (id)self.headerView;
   headerView.textLabel.text = @"The Duomo in Firenze";

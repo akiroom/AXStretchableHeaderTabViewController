@@ -17,7 +17,7 @@
                         <constraint firstAttribute="height" constant="21" id="k55-jA-g49"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample-photo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="XFY-O6-uyS">
@@ -32,11 +32,12 @@
                         <constraint firstAttribute="height" constant="30" id="9DU-OA-Oho"/>
                     </constraints>
                     <state key="normal" title="Button">
+                        <color key="titleColor" red="0.66274511814117432" green="0.86666673421859741" blue="0.92941182851791382" alpha="1" colorSpace="deviceRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="0.5" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="r0d-iJ-CcH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="1x0-02-kZJ"/>
                 <constraint firstAttribute="trailing" secondItem="XFY-O6-uyS" secondAttribute="trailing" constant="20" id="2ja-VC-4SD"/>
