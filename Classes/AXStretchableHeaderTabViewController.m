@@ -203,7 +203,7 @@
 
     UIScrollView *selectedScrollView = [selectedViewController view];
     CGFloat headerViewHeight = _headerView.maximumOfHeight - (selectedScrollView.contentOffset.y + selectedScrollView.contentInset.top);
-    NSLog(@"%d, %d, %d", (int)_headerView.minimumOfHeight, (int)(_headerView.maximumOfHeight - headerViewHeight), (int)(headerViewHeight-_headerView.minimumOfHeight));
+    NSLog(@"%d, %d, %d", (int)selectedScrollView.contentOffset.y, (int)(_headerView.maximumOfHeight - headerViewHeight), (int)(headerViewHeight-_headerView.minimumOfHeight));
     [self layoutHeaderViewAndTabBar];
   }
 }
@@ -216,10 +216,12 @@
   if ([selectedViewController.view isKindOfClass:[UIScrollView class]]) {
     UIScrollView *selectedScrollView = (id)selectedViewController.view;
     
+    CGFloat (^calcRelativeY)(CGFloat contentOffsetY, CGFloat contentInsetTop) = ^CGFloat(CGFloat contentOffsetY, CGFloat contentInsetTop) {
+      return _headerView.maximumOfHeight - _headerView.minimumOfHeight - (contentOffsetY + contentInsetTop);
+    };
+
     
-    
-    CGFloat headerViewHeight = _headerView.maximumOfHeight - (selectedScrollView.contentOffset.y + selectedScrollView.contentInset.top);
-    CGFloat relativePositionY = headerViewHeight - _headerView.minimumOfHeight;
+    CGFloat relativePositionY = calcRelativeY(selectedScrollView.contentOffset.y, selectedScrollView.contentInset.top);//headerViewHeight - _headerView.minimumOfHeight;
     if (relativePositionY > 0) {
       [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
         if (selectedViewController == viewController) {
@@ -227,8 +229,10 @@
         }
         UIView *targetView = viewController.view;
         if ([targetView isKindOfClass:[UIScrollView class]]) {
+          // Scroll view
           [(UIScrollView *)targetView setContentOffset:selectedScrollView.contentOffset];
         } else {
+          // Not scroll view
           CGFloat y = CGRectGetMaxY(_tabBar.frame) - _containerView.contentInset.top;
           [targetView setFrame:(CGRect){
             CGRectGetMinX(targetView.frame), y,
@@ -237,8 +241,26 @@
         }
       }];
     } else {
-      // TODO: if (relativePositionY2 > 0) then 先頭へ移動
-      NSLog(@"TODO");
+      [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
+        if (selectedViewController == viewController) {
+          return;
+        }
+        
+        UIView *targetView = viewController.view;
+        if ([targetView isKindOfClass:[UIScrollView class]]) {
+          // Scroll view
+          UIScrollView *targetScrollView = (id)targetView;
+          CGFloat targetRelativePositionY = calcRelativeY(targetScrollView.contentOffset.y, targetScrollView.contentInset.top);
+          if (targetRelativePositionY > 0) {
+            targetScrollView.contentOffset = (CGPoint){
+              targetScrollView.contentOffset.x,
+              -(CGRectGetMaxY(_tabBar.frame) - _containerView.contentInset.top)
+            };
+          }
+        } else {
+          // Not scroll view
+        }
+      }];
     }
   }
 }
