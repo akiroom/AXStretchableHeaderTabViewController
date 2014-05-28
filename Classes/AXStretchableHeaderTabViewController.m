@@ -213,63 +213,55 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
   UIViewController *selectedViewController = [self selectedViewController];
-  if ([selectedViewController.view isKindOfClass:[UIScrollView class]]) {
-    UIScrollView *selectedScrollView = (id)selectedViewController.view;
+  if ([selectedViewController.view isKindOfClass:[UIScrollView class]] == NO) {
+    return;
+  }
+  // Define selected scroll view
+  UIScrollView *selectedScrollView = (id)selectedViewController.view;
+  
+  // Define relative y calculator
+  CGFloat (^calcRelativeY)(CGFloat contentOffsetY, CGFloat contentInsetTop) = ^CGFloat(CGFloat contentOffsetY, CGFloat contentInsetTop) {
+    return _headerView.maximumOfHeight - _headerView.minimumOfHeight - (contentOffsetY + contentInsetTop);
+  };
+  
+  // Adjustment offset or frame for sub views.
+  [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
+    if (selectedViewController == viewController) {
+      return;
+    }
     
-    CGFloat (^calcRelativeY)(CGFloat contentOffsetY, CGFloat contentInsetTop) = ^CGFloat(CGFloat contentOffsetY, CGFloat contentInsetTop) {
-      return _headerView.maximumOfHeight - _headerView.minimumOfHeight - (contentOffsetY + contentInsetTop);
-    };
+    UIView *targetView = viewController.view;
+    if ([targetView isKindOfClass:[UIScrollView class]]) {
+      // Scroll view
+      // -> Adjust offset
+      UIScrollView *targetScrollView = (id)targetView;
+      CGFloat relativePositionY = calcRelativeY(selectedScrollView.contentOffset.y, selectedScrollView.contentInset.top);//headerViewHeight - _headerView.minimumOfHeight;
+      if (relativePositionY > 0) {
+        // The header view's height is higher than minimum height.
+        // -> Adjust same offset.
+        [targetScrollView setContentOffset:selectedScrollView.contentOffset];
 
-    
-    CGFloat relativePositionY = calcRelativeY(selectedScrollView.contentOffset.y, selectedScrollView.contentInset.top);//headerViewHeight - _headerView.minimumOfHeight;
-    if (relativePositionY > 0) {
-      // The header view height is higher than minimum height.
-      [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
-        if (selectedViewController == viewController) {
-          return;
+      } else {
+        // The header view height is lower than minimum height.
+        // -> Adjust top of scrollview, If target header view's height is higher than minimum height.
+        CGFloat targetRelativePositionY = calcRelativeY(targetScrollView.contentOffset.y, targetScrollView.contentInset.top);
+        if (targetRelativePositionY > 0) {
+          targetScrollView.contentOffset = (CGPoint){
+            targetScrollView.contentOffset.x,
+            -(CGRectGetMaxY(_tabBar.frame) - _containerView.contentInset.top)
+          };
         }
-        UIView *targetView = viewController.view;
-        if ([targetView isKindOfClass:[UIScrollView class]]) {
-          // Scroll view
-          [(UIScrollView *)targetView setContentOffset:selectedScrollView.contentOffset];
-        } else {
-          // Not scroll view
-          CGFloat y = CGRectGetMaxY(_tabBar.frame) - _containerView.contentInset.top;
-          [targetView setFrame:(CGRect){
-            CGRectGetMinX(targetView.frame), y,
-            CGRectGetMinX(targetView.frame), CGRectGetHeight(_containerView.frame) - y
-          }];
-        }
-      }];
+      }
     } else {
-      // The header view height is lower than minimum height.
-      [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
-        if (selectedViewController == viewController) {
-          return;
-        }
-        
-        UIView *targetView = viewController.view;
-        if ([targetView isKindOfClass:[UIScrollView class]]) {
-          // Scroll view
-          UIScrollView *targetScrollView = (id)targetView;
-          CGFloat targetRelativePositionY = calcRelativeY(targetScrollView.contentOffset.y, targetScrollView.contentInset.top);
-          if (targetRelativePositionY > 0) {
-            targetScrollView.contentOffset = (CGPoint){
-              targetScrollView.contentOffset.x,
-              -(CGRectGetMaxY(_tabBar.frame) - _containerView.contentInset.top)
-            };
-          }
-        } else {
-          // Not scroll view
-          CGFloat y = CGRectGetMaxY(_tabBar.frame) - _containerView.contentInset.top;
-          [targetView setFrame:(CGRect){
-            CGRectGetMinX(targetView.frame), y,
-            CGRectGetMinX(targetView.frame), CGRectGetHeight(_containerView.frame) - y
-          }];
-        }
+      // Not scroll view
+      // -> Adjust frame to area at the bottom of tab bar.
+      CGFloat y = CGRectGetMaxY(_tabBar.frame) - _containerView.contentInset.top;
+      [targetView setFrame:(CGRect){
+        CGRectGetMinX(targetView.frame), y,
+        CGRectGetMinX(targetView.frame), CGRectGetHeight(_containerView.frame) - y
       }];
     }
-  }
+  }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

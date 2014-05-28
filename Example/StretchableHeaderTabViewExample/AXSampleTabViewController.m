@@ -61,6 +61,11 @@
   [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+  return UIStatusBarStyleLightContent;
+}
+
 - (void)back:(id)sender
 {
   [self.navigationController popToRootViewControllerAnimated:YES];
