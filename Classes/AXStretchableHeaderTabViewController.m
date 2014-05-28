@@ -223,6 +223,7 @@
     
     CGFloat relativePositionY = calcRelativeY(selectedScrollView.contentOffset.y, selectedScrollView.contentInset.top);//headerViewHeight - _headerView.minimumOfHeight;
     if (relativePositionY > 0) {
+      // The header view height is higher than minimum height.
       [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
         if (selectedViewController == viewController) {
           return;
@@ -241,6 +242,7 @@
         }
       }];
     } else {
+      // The header view height is lower than minimum height.
       [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
         if (selectedViewController == viewController) {
           return;
