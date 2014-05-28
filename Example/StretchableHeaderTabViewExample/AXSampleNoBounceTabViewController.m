@@ -1,32 +1,40 @@
 //
-//  AXSampleTabViewController.m
+//  AXSampleNoBounceTabViewController.m
 //  StretchableHeaderTabViewExample
 //
+//  Created by Hiroki Akiyama on 2014/05/28.
+//  Copyright (c) 2014年 Hiroki Akiyama. All rights reserved.
+//
 
-#import "AXSampleTabViewController.h"
+#import "AXSampleNoBounceTabViewController.h"
 #import "AXSub1TableViewController.h"
 #import "AXSub2TableViewController.h"
-#import "AXSub3ViewController.h"
 #import "AXSampleHeaderView.h"
 
-@interface AXSampleTabViewController ()
+@interface AXSampleNoBounceTabViewController ()
 
 @end
 
-@implementation AXSampleTabViewController
+@implementation AXSampleNoBounceTabViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
+    self.title = @"Sample";
+    
     AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
+    
+    // THIS IS THE POINT IN THIS FILE.
+    headerView.bounces = NO;
+    // THIS IS THE POINT IN THIS FILE.
+    
     self.headerView = headerView;
     
     AXSub1TableViewController *sub1ViewCon = [[AXSub1TableViewController alloc] init];
     AXSub2TableViewController *sub2ViewCon = [[AXSub2TableViewController alloc] init];
-    AXSub3ViewController *sub3ViewCon = [[AXSub3ViewController alloc] init];
     
-    NSArray *viewControllers = @[sub1ViewCon, sub2ViewCon, sub3ViewCon];
+    NSArray *viewControllers = @[sub1ViewCon, sub2ViewCon];
     self.viewControllers = viewControllers;
   }
   return self;
@@ -46,21 +54,9 @@
   [headerView.backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)didReceiveMemoryWarning
 {
-  [super viewWillAppear:animated];
-  [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-  [super viewWillDisappear:animated];
-  [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-  return UIStatusBarStyleLightContent;
+  [super didReceiveMemoryWarning];
 }
 
 - (void)back:(id)sender

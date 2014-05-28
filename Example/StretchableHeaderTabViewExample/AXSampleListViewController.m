@@ -7,6 +7,7 @@
 #import <AXStretchableHeaderTabViewController/AXDummyViewController.h>
 #import "AXSampleTabViewController.h"
 #import "AXSampleNavBarTabViewController.h"
+#import "AXSampleNoBounceTabViewController.h"
 
 @interface AXSampleListViewController ()
 
@@ -46,7 +47,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 2;
+  return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,6 +57,7 @@
   [cell.textLabel setText:
    @[@"Sample",
      @"Sample with no NavigationBar",
+     @"Sample with no bounce",
      ][indexPath.row]];
   return cell;
 }
@@ -74,6 +76,10 @@
       AXSampleTabViewController *tabViewCon = [[AXSampleTabViewController alloc] init];
       [self.navigationController pushViewController:tabViewCon animated:YES];
       break;
+    }
+    case 2: {
+      AXSampleNoBounceTabViewController *tabViewCon = [[AXSampleNoBounceTabViewController alloc] init];
+      [self.navigationController pushViewController:tabViewCon animated:YES];
     }
     default:
       break;
