@@ -10,7 +10,15 @@ Stretchable header view + Horizontal swipable tab view
 
 To run the example project; clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## Screenshots
+
+### Stretchable Header
+
+![Stretchable Header](https://raw.githubusercontent.com/akiroom/AXStretchableHeaderTabViewController/master/Screenshots/screenshot-stretchable.gif)
+
+### Swipable tabs
+
+![Swipable tabs](https://raw.githubusercontent.com/akiroom/AXStretchableHeaderTabViewController/master/Screenshots/screenshot-swipable.gif)
 
 ## Installation
 
@@ -25,4 +33,4 @@ Hiroki Akiyama, aki-hiroki@nifty.com
 
 ## License
 
-AXStretchableHeaderTabViewController is available under the MIT license. See the LICENSE file for more info.
+MIT license. See the LICENSE file for more info.
