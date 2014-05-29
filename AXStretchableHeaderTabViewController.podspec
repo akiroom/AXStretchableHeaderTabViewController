@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod lib lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
 Pod::Spec.new do |s|
   s.name             = "AXStretchableHeaderTabViewController"
   s.version          = "0.1.0"
@@ -28,7 +22,5 @@ Pod::Spec.new do |s|
   s.resources = 'Classes/**/*.xib'
 
   s.ios.exclude_files = 'Classes/osx'
-  # s.public_header_files = 'Classes/**/*.h'
   s.frameworks = 'UIKit', 'CoreGraphics'
-  # s.dependency 'JSONKit', '~> 1.4'
 end
