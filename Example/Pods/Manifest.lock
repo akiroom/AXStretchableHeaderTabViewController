@@ -1,5 +1,5 @@
 PODS:
-  - AXStretchableHeaderTabViewController (0.1.0)
+  - AXStretchableHeaderTabViewController (0.1.2)
 
 DEPENDENCIES:
   - AXStretchableHeaderTabViewController (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  AXStretchableHeaderTabViewController: 0acc40345e74bbedd94bdee7bd98ee0b0514b022
+  AXStretchableHeaderTabViewController: ae2bc8d2ce8c03904f2c585fd9e964cbf1ab1380
 
 COCOAPODS: 0.33.1
