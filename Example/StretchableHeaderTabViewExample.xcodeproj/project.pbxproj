@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		75101E141935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75101E131935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m */; };
+		75101E5E1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75101E5D1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m */; };
 		7548149F193234F400CFD342 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7548149E193234F400CFD342 /* Foundation.framework */; };
 		754814A1193234F400CFD342 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754814A0193234F400CFD342 /* CoreGraphics.framework */; };
 		754814A3193234F400CFD342 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754814A2193234F400CFD342 /* UIKit.framework */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		75101E121935F7C500AE76E8 /* AXSampleNoBounceTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleNoBounceTabViewController.h; sourceTree = "<group>"; };
 		75101E131935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleNoBounceTabViewController.m; sourceTree = "<group>"; };
+		75101E5C1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleNoHeaderTabViewController.h; sourceTree = "<group>"; };
+		75101E5D1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleNoHeaderTabViewController.m; sourceTree = "<group>"; };
 		7548149B193234F400CFD342 /* StretchableHeaderTabViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StretchableHeaderTabViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7548149E193234F400CFD342 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		754814A0193234F400CFD342 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -213,6 +216,8 @@
 				757BA7B119338CC3006ADDAF /* AXSampleNavBarTabViewController.m */,
 				75101E121935F7C500AE76E8 /* AXSampleNoBounceTabViewController.h */,
 				75101E131935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m */,
+				75101E5C1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.h */,
+				75101E5D1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m */,
 				754814F719323CC800CFD342 /* AXSampleTabViewController.h */,
 				754814F819323CC800CFD342 /* AXSampleTabViewController.m */,
 				754814DD19323A9400CFD342 /* Sub View Controllers */,
@@ -362,6 +367,7 @@
 				757BA7B219338CC3006ADDAF /* AXSampleNavBarTabViewController.m in Sources */,
 				754814AF193234F400CFD342 /* AXAppDelegate.m in Sources */,
 				754814E619323ADF00CFD342 /* AXSub3ViewController.m in Sources */,
+				75101E5E1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m in Sources */,
 				754814DC1932394E00CFD342 /* AXSampleListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

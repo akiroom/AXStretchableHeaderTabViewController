@@ -10,5 +10,5 @@
 #define COCOAPODS_POD_AVAILABLE_AXStretchableHeaderTabViewController
 #define COCOAPODS_VERSION_MAJOR_AXStretchableHeaderTabViewController 0
 #define COCOAPODS_VERSION_MINOR_AXStretchableHeaderTabViewController 1
-#define COCOAPODS_VERSION_PATCH_AXStretchableHeaderTabViewController 0
+#define COCOAPODS_VERSION_PATCH_AXStretchableHeaderTabViewController 2
 

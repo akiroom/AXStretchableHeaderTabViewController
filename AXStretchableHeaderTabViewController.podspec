@@ -1,11 +1,12 @@
 Pod::Spec.new do |s|
   s.name             = "AXStretchableHeaderTabViewController"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "Stretchable header view + Horizontal swipable tab view."
   s.description      = <<-DESC
                        Stretchable header view + Horizontal swipable tab view
                        - Stretchable header view.
                        - Horizontal swipable tab view.
+                       - No header tab view.
                        DESC
   s.homepage         = "https://github.com/akiroom/AXStretchableHeaderTabViewController"
   s.screenshots      = "https://raw.githubusercontent.com/akiroom/AXStretchableHeaderTabViewController/master/Screenshots/screenshot-stretchable.gif", "https://raw.githubusercontent.com/akiroom/AXStretchableHeaderTabViewController/master/Screenshots/screenshot-swipable.gif"

@@ -18,7 +18,7 @@
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-    self.title = @"Sample";
+    self.title = @"No Bounce";
     
     AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
     
