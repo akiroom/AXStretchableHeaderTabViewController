@@ -1,0 +1,14 @@
+PODS:
+  - AXStretchableHeaderTabViewController (0.1.0)
+
+DEPENDENCIES:
+  - AXStretchableHeaderTabViewController (from `../`)
+
+EXTERNAL SOURCES:
+  AXStretchableHeaderTabViewController:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AXStretchableHeaderTabViewController: 0acc40345e74bbedd94bdee7bd98ee0b0514b022
+
+COCOAPODS: 0.33.1
