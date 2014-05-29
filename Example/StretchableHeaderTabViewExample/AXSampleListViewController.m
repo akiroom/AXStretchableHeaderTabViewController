@@ -4,7 +4,6 @@
 //
 
 #import "AXSampleListViewController.h"
-#import <AXStretchableHeaderTabViewController/AXDummyViewController.h>
 #import "AXSampleTabViewController.h"
 #import "AXSampleNavBarTabViewController.h"
 #import "AXSampleNoBounceTabViewController.h"
