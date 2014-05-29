@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "AXStretchableHeaderTabViewController"
-  s.version          = "0.1.3"
+  s.version          = "0.1.4"
   s.summary          = "Stretchable header view + Horizontal swipable tab view."
   s.description      = <<-DESC
                        Stretchable header view + Horizontal swipable tab view
