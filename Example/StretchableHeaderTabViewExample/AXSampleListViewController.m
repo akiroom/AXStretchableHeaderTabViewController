@@ -7,6 +7,7 @@
 #import "AXSampleTabViewController.h"
 #import "AXSampleNavBarTabViewController.h"
 #import "AXSampleNoBounceTabViewController.h"
+#import "AXSampleNoHeaderTabViewController.h"
 
 @interface AXSampleListViewController ()
 
@@ -46,7 +47,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 3;
+  return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -57,6 +58,7 @@
    @[@"Sample",
      @"Sample with no NavigationBar",
      @"Sample with no bounce",
+     @"Sample with no header view",
      ][indexPath.row]];
   return cell;
 }
@@ -79,6 +81,12 @@
     case 2: {
       AXSampleNoBounceTabViewController *tabViewCon = [[AXSampleNoBounceTabViewController alloc] init];
       [self.navigationController pushViewController:tabViewCon animated:YES];
+      break;
+    }
+    case 3: {
+      AXSampleNoHeaderTabViewController *tabViewCon = [[AXSampleNoHeaderTabViewController alloc] init];
+      [self.navigationController pushViewController:tabViewCon animated:YES];
+      break;
     }
     default:
       break;

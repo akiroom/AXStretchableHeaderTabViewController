@@ -100,6 +100,9 @@
 - (void)setViewControllers:(NSArray *)viewControllers
 {
   if ([_viewControllers isEqualToArray:viewControllers] == NO) {
+    // Load nib file, if self.view is nil.
+    [self view];
+    
     // Remove views in old view controllers
     [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
       [viewController.view removeFromSuperview];
@@ -159,8 +162,13 @@
   }
   
   // Tab bar
+  CGFloat tabBarY =
+  (_headerView ?
+   CGRectGetMaxY(_headerView.frame) :
+   _containerView.contentInset.top
+   );
   [_tabBar setFrame:(CGRect){
-    0.0, CGRectGetMaxY(_headerView.frame),
+    0.0, tabBarY,
     _tabBar.frame.size
   }];
   
@@ -171,7 +179,16 @@
   [self.view layoutSubviews];
   CGSize size = _containerView.bounds.size;
   
-  UIEdgeInsets contentInsets = UIEdgeInsetsMake(_headerView.maximumOfHeight + CGRectGetHeight(_tabBar.bounds), 0.0, _containerView.contentInset.top, 0.0);
+  CGFloat headerOffset =
+  (_headerView ?
+   _headerView.maximumOfHeight :
+   0.0
+  );
+  UIEdgeInsets contentInsets = UIEdgeInsetsMake(headerOffset + CGRectGetHeight(_tabBar.bounds), 0.0, _containerView.contentInset.top, 0.0);
+  
+  NSLog(@"はじまるよ");
+  NSLog(@"%@", NSStringFromCGRect(_containerView.frame));
+  NSLog(@"%@", NSStringFromUIEdgeInsets(_containerView.contentInset));
   
   // Resize sub view controllers
   [_viewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -182,9 +199,17 @@
         UIScrollView *scrollView = (id)viewController.view;
         [scrollView setFrame:newFrame];
         [scrollView setContentInset:contentInsets];
+        NSLog(@"----");
+        NSLog(@"%@\t%@", viewController, viewController.view.superview);
+        NSLog(@"%@", NSStringFromCGRect(newFrame));
+        NSLog(@"%@", NSStringFromUIEdgeInsets(contentInsets));
       } else {
         [viewController.view setFrame:UIEdgeInsetsInsetRect(newFrame, contentInsets)];
       }
+      [viewController.view setBackgroundColor:[UIColor colorWithRed:rand()%255/255.0
+                                                              green:rand()%255/255.0
+                                                               blue:rand()%255/255.0
+                                                              alpha:1.0]];
     }
   }];
   [_containerView setContentSize:(CGSize){size.width * _viewControllers.count, 0.0}];
