@@ -2,9 +2,6 @@
 //  AXSampleNavBarTabViewController.m
 //  StretchableHeaderTabViewExample
 //
-//  Created by Hiroki Akiyama on 2014/05/26.
-//  Copyright (c) 2014年 Hiroki Akiyama. All rights reserved.
-//
 
 #import "AXSampleNavBarTabViewController.h"
 #import "AXSub1TableViewController.h"
