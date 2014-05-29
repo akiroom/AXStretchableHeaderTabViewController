@@ -41,15 +41,31 @@
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
   UIView *targetView = [super hitTest:point withEvent:event];
-  if (targetView == self) {
+  if (!targetView) {
+    return nil;
+  } else if (targetView == self) {
     return nil;
   }
   
-  if ([[[self delegate] interactiveSubviewsInStretchableHeaderView:self] indexOfObject:targetView] == NSNotFound) {
-    return nil;
-  } else {
-    return targetView;
+  NSArray *interactiveSubviews = [self.delegate interactiveSubviewsInStretchableHeaderView:self];
+  
+  // Recursive search interactive view in children.
+  __block BOOL isFound = NO;
+  UIView *checkView = targetView;
+  while (checkView != self) {
+    [interactiveSubviews enumerateObjectsUsingBlock:^(UIView *interactiveSubview, NSUInteger idx, BOOL *stop) {
+      if (checkView == interactiveSubview) {
+        isFound = YES;
+        *stop = YES;
+      }
+    }];
+    if (isFound) {
+      return targetView;
+    }
+    checkView = [checkView superview];
   }
+
+  return nil;
 }
 
 - (void)layoutSubviews
