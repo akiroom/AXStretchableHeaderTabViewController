@@ -22,6 +22,8 @@
 {
   self = [super initWithFrame:frame];
   if (self) {
+    _tabBarButtonFont = [UIFont systemFontOfSize:14.0];
+    
     _toolbar = [[UIToolbar alloc] init];
     _toolbar.userInteractionEnabled = NO;
     [self addSubview:_toolbar];
@@ -93,6 +95,7 @@
       if ([obj isKindOfClass:[UITabBarItem class]]) {
         UITabBarItem *item = obj;
         AXTabBarItemButton *button = [[AXTabBarItemButton alloc] init];
+        [button.titleLabel setFont:_tabBarButtonFont];
         [button setImage:item.image forState:UIControlStateNormal];
         [button setTitle:item.title forState:UIControlStateNormal];
         [button setBadgeValue:item.badgeValue];

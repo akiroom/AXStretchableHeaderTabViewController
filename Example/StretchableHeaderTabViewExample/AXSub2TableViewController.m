@@ -4,6 +4,7 @@
 //
 
 #import "AXSub2TableViewController.h"
+#import "AXEmptyViewController.h"
 
 @interface AXSub2TableViewController ()
 
@@ -55,13 +56,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"my-cell" forIndexPath:indexPath];
+  [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
   [cell.textLabel setText:[NSString stringWithFormat:@"(%ld, %ld)", indexPath.section, indexPath.row]];
   return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  AXEmptyViewController *nextViewCon = [[AXEmptyViewController alloc] init];
+  [self.navigationController pushViewController:nextViewCon animated:YES];
 }
 
 @end
