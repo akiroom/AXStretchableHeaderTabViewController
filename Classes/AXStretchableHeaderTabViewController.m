@@ -40,13 +40,12 @@
   [self.view addSubview:_tabBar];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (void)dealloc
 {
   [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
     [viewController.view removeObserver:self forKeyPath:@"contentOffset"];
     [viewController removeFromParentViewController];
   }];
-  [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLayoutSubviews

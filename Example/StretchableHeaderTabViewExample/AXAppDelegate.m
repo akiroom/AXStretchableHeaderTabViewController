@@ -16,6 +16,7 @@
   AXSampleListViewController *sampleListViewCon = [[AXSampleListViewController alloc] init];
   
   UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:sampleListViewCon];
+  navCon.view.backgroundColor = [UIColor whiteColor];
   self.window.rootViewController = navCon;
   
   [self.window makeKeyAndVisible];

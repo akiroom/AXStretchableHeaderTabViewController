@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		75101E141935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75101E131935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m */; };
 		75101E5E1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75101E5D1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m */; };
+		75101E6E19370AC100AE76E8 /* AXEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75101E6D19370AC100AE76E8 /* AXEmptyViewController.m */; };
 		7548149F193234F400CFD342 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7548149E193234F400CFD342 /* Foundation.framework */; };
 		754814A1193234F400CFD342 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754814A0193234F400CFD342 /* CoreGraphics.framework */; };
 		754814A3193234F400CFD342 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754814A2193234F400CFD342 /* UIKit.framework */; };
@@ -48,6 +49,8 @@
 		75101E131935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleNoBounceTabViewController.m; sourceTree = "<group>"; };
 		75101E5C1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleNoHeaderTabViewController.h; sourceTree = "<group>"; };
 		75101E5D1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleNoHeaderTabViewController.m; sourceTree = "<group>"; };
+		75101E6C19370AC100AE76E8 /* AXEmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXEmptyViewController.h; sourceTree = "<group>"; };
+		75101E6D19370AC100AE76E8 /* AXEmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXEmptyViewController.m; sourceTree = "<group>"; };
 		7548149B193234F400CFD342 /* StretchableHeaderTabViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StretchableHeaderTabViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7548149E193234F400CFD342 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		754814A0193234F400CFD342 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -109,6 +112,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75101E6F19370AC800AE76E8 /* Empty View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				75101E6C19370AC100AE76E8 /* AXEmptyViewController.h */,
+				75101E6D19370AC100AE76E8 /* AXEmptyViewController.m */,
+			);
+			name = "Empty View Controller";
+			sourceTree = "<group>";
+		};
+		75101E7119370ADC00AE76E8 /* TabVC (with Nav Bar) */ = {
+			isa = PBXGroup;
+			children = (
+				757BA7B019338CC3006ADDAF /* AXSampleNavBarTabViewController.h */,
+				757BA7B119338CC3006ADDAF /* AXSampleNavBarTabViewController.m */,
+			);
+			name = "TabVC (with Nav Bar)";
+			sourceTree = "<group>";
+		};
+		75101E7219370AF000AE76E8 /* TabVC (without Nav Bar) */ = {
+			isa = PBXGroup;
+			children = (
+				754814F719323CC800CFD342 /* AXSampleTabViewController.h */,
+				754814F819323CC800CFD342 /* AXSampleTabViewController.m */,
+			);
+			name = "TabVC (without Nav Bar)";
+			sourceTree = "<group>";
+		};
+		75101E7319370B0400AE76E8 /* TabVC (no bounce) */ = {
+			isa = PBXGroup;
+			children = (
+				75101E121935F7C500AE76E8 /* AXSampleNoBounceTabViewController.h */,
+				75101E131935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m */,
+			);
+			name = "TabVC (no bounce)";
+			sourceTree = "<group>";
+		};
+		75101E7419370B1000AE76E8 /* TabVC (no header) */ = {
+			isa = PBXGroup;
+			children = (
+				75101E5C1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.h */,
+				75101E5D1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m */,
+			);
+			name = "TabVC (no header)";
+			sourceTree = "<group>";
+		};
+		75101E7519370B3E00AE76E8 /* Header View */ = {
+			isa = PBXGroup;
+			children = (
+				759D088C1935BEEB00E930BD /* AXSampleHeaderView.h */,
+				759D088D1935BEEB00E930BD /* AXSampleHeaderView.m */,
+				75A68DEA1935CBFD00C753FF /* AXSampleHeaderView.xib */,
+			);
+			name = "Header View";
+			sourceTree = "<group>";
+		};
 		75481492193234F400CFD342 = {
 			isa = PBXGroup;
 			children = (
@@ -144,12 +202,14 @@
 		754814A4193234F400CFD342 /* StretchableHeaderTabViewExample */ = {
 			isa = PBXGroup;
 			children = (
-				754814E719323B1500CFD342 /* Sample Tab View Controller */,
+				75101E6F19370AC800AE76E8 /* Empty View Controller */,
+				75101E7519370B3E00AE76E8 /* Header View */,
 				754814D91932391F00CFD342 /* Sample list */,
+				754814E719323B1500CFD342 /* Sample Tab View Controller */,
+				75481501193241A800CFD342 /* sample-photo.jpg */,
 				754814AD193234F400CFD342 /* AXAppDelegate.h */,
 				754814AE193234F400CFD342 /* AXAppDelegate.m */,
 				754814B0193234F400CFD342 /* Images.xcassets */,
-				75481501193241A800CFD342 /* sample-photo.jpg */,
 				754814A5193234F400CFD342 /* Supporting Files */,
 			);
 			path = StretchableHeaderTabViewExample;
@@ -209,18 +269,11 @@
 		754814E719323B1500CFD342 /* Sample Tab View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				759D088C1935BEEB00E930BD /* AXSampleHeaderView.h */,
-				759D088D1935BEEB00E930BD /* AXSampleHeaderView.m */,
-				75A68DEA1935CBFD00C753FF /* AXSampleHeaderView.xib */,
-				757BA7B019338CC3006ADDAF /* AXSampleNavBarTabViewController.h */,
-				757BA7B119338CC3006ADDAF /* AXSampleNavBarTabViewController.m */,
-				75101E121935F7C500AE76E8 /* AXSampleNoBounceTabViewController.h */,
-				75101E131935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m */,
-				75101E5C1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.h */,
-				75101E5D1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m */,
-				754814F719323CC800CFD342 /* AXSampleTabViewController.h */,
-				754814F819323CC800CFD342 /* AXSampleTabViewController.m */,
 				754814DD19323A9400CFD342 /* Sub View Controllers */,
+				75101E7319370B0400AE76E8 /* TabVC (no bounce) */,
+				75101E7419370B1000AE76E8 /* TabVC (no header) */,
+				75101E7119370ADC00AE76E8 /* TabVC (with Nav Bar) */,
+				75101E7219370AF000AE76E8 /* TabVC (without Nav Bar) */,
 			);
 			name = "Sample Tab View Controller";
 			sourceTree = "<group>";
@@ -363,6 +416,7 @@
 				754814E319323ABF00CFD342 /* AXSub2TableViewController.m in Sources */,
 				759D088E1935BEEB00E930BD /* AXSampleHeaderView.m in Sources */,
 				754814FA19323CC800CFD342 /* AXSampleTabViewController.m in Sources */,
+				75101E6E19370AC100AE76E8 /* AXEmptyViewController.m in Sources */,
 				754814E019323AA400CFD342 /* AXSub1TableViewController.m in Sources */,
 				757BA7B219338CC3006ADDAF /* AXSampleNavBarTabViewController.m in Sources */,
 				754814AF193234F400CFD342 /* AXAppDelegate.m in Sources */,
