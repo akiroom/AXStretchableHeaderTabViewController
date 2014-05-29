@@ -18,7 +18,7 @@
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-    self.title = @"Sample";
+    self.title = @"No header";
     
     AXSub1TableViewController *sub1ViewCon = [[AXSub1TableViewController alloc] init];
     AXSub2TableViewController *sub2ViewCon = [[AXSub2TableViewController alloc] init];
