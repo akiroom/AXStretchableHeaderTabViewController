@@ -186,10 +186,6 @@
   );
   UIEdgeInsets contentInsets = UIEdgeInsetsMake(headerOffset + CGRectGetHeight(_tabBar.bounds), 0.0, _containerView.contentInset.top, 0.0);
   
-  NSLog(@"はじまるよ");
-  NSLog(@"%@", NSStringFromCGRect(_containerView.frame));
-  NSLog(@"%@", NSStringFromUIEdgeInsets(_containerView.contentInset));
-  
   // Resize sub view controllers
   [_viewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
     if ([obj isKindOfClass:[UIViewController class]]) {
@@ -199,17 +195,9 @@
         UIScrollView *scrollView = (id)viewController.view;
         [scrollView setFrame:newFrame];
         [scrollView setContentInset:contentInsets];
-        NSLog(@"----");
-        NSLog(@"%@\t%@", viewController, viewController.view.superview);
-        NSLog(@"%@", NSStringFromCGRect(newFrame));
-        NSLog(@"%@", NSStringFromUIEdgeInsets(contentInsets));
       } else {
         [viewController.view setFrame:UIEdgeInsetsInsetRect(newFrame, contentInsets)];
       }
-      [viewController.view setBackgroundColor:[UIColor colorWithRed:rand()%255/255.0
-                                                              green:rand()%255/255.0
-                                                               blue:rand()%255/255.0
-                                                              alpha:1.0]];
     }
   }];
   [_containerView setContentSize:(CGSize){size.width * _viewControllers.count, 0.0}];
