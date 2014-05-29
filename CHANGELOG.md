@@ -1,5 +1,9 @@
 # AXStretchableHeaderTabViewController CHANGELOG
 
+## 0.1.4
+
+Fix: Detect hit event in children/grandchildren of header view subviews.
+
 ## 0.1.3
 
 Fix: View controller transition fault
