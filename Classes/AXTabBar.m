@@ -14,6 +14,7 @@
 
 @implementation AXTabBar {
   NSArray *_items;
+  CALayer *_bottomSeparator;
   CALayer *_indicatorLayer;
   AXTabBarStyle _tabBarStyle;
 }
@@ -34,6 +35,10 @@
     _containerView.decelerationRate = UIScrollViewDecelerationRateFast;
     [self addSubview:_containerView];
     
+    _bottomSeparator = [CALayer layer];
+    [_bottomSeparator setBackgroundColor:[[UIColor colorWithWhite:0.0 alpha:0.1] CGColor]];
+    [self.layer addSublayer:_bottomSeparator];
+
     _indicatorLayer = [CALayer layer];
     [self.layer addSublayer:_indicatorLayer];
   }
@@ -137,8 +142,14 @@
 {
   [CATransaction begin];
   [CATransaction setDisableActions:YES];
+  CGFloat width = CGRectGetWidth(self.bounds);
+  CGFloat height = CGRectGetHeight(self.bounds);
+  [_bottomSeparator setFrame:(CGRect){
+    0.0, height - 1.0,
+    width, 1.0
+  }];
   [_indicatorLayer setFrame:(CGRect){
-    CGRectGetMinX(button.frame), CGRectGetHeight(self.bounds) - 2.0,
+    CGRectGetMinX(button.frame), height - 2.0,
     CGRectGetWidth(button.frame), 2.0
   }];
   [CATransaction commit];
