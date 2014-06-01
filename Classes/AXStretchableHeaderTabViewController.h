@@ -2,17 +2,12 @@
 //  AXStretchableHeaderTabViewController.h
 //  Pods
 //
-//  Created by Hiroki Akiyama on 2014/05/25.
-//
-//
 
 #import <UIKit/UIKit.h>
 #import "AXStretchableHeaderView.h"
 #import "AXTabBar.h"
 
-@interface AXStretchableHeaderTabViewController : UIViewController
-//@property (weak, nonatomic) id<UITabBarControllerDelegate> delegate;
-
+@interface AXStretchableHeaderTabViewController : UIViewController <UIScrollViewDelegate, AXTabBarDelegate>
 @property (nonatomic) NSUInteger selectedIndex;
 @property (readwrite, nonatomic) UIViewController *selectedViewController;
 @property (copy, nonatomic) NSArray *viewControllers;

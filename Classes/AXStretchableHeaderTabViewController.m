@@ -2,13 +2,10 @@
 //  AXStretchableHeaderTabViewController.m
 //  Pods
 //
-//  Created by Hiroki Akiyama on 2014/05/25.
-//
-//
 
 #import "AXStretchableHeaderTabViewController.h"
 
-@interface AXStretchableHeaderTabViewController () <UIScrollViewDelegate, AXTabBarDelegate>
+@interface AXStretchableHeaderTabViewController ()
 
 @end
 

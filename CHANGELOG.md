@@ -1,5 +1,9 @@
 # AXStretchableHeaderTabViewController CHANGELOG
 
+## 0.1.6
+
+Feature: Reveal delegate in tab view controller.
+
 ## 0.1.5
 
 Feature: add bottom separator.
