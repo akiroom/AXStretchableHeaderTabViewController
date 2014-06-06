@@ -48,6 +48,9 @@
   }
   
   NSArray *interactiveSubviews = [self.delegate interactiveSubviewsInStretchableHeaderView:self];
+  if ([interactiveSubviews containsObject:self]) {
+    return targetView;
+  }
   
   // Recursive search interactive view in children.
   __block BOOL isFound = NO;

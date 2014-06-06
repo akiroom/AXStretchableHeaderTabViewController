@@ -1,5 +1,9 @@
 # AXStretchableHeaderTabViewController CHANGELOG
 
+## 0.1.7
+
+Feature: Support "self" in interactive header view.
+
 ## 0.1.6
 
 Feature: Reveal delegate in tab view controller.
