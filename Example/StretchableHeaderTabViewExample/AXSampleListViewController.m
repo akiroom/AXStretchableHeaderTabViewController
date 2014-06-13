@@ -8,12 +8,15 @@
 #import "AXSampleNavBarTabViewController.h"
 #import "AXSampleNoBounceTabViewController.h"
 #import "AXSampleNoHeaderTabViewController.h"
+#import "AXSampleNoSwipableTabViewController.h"
 
 @interface AXSampleListViewController ()
 
 @end
 
-@implementation AXSampleListViewController
+@implementation AXSampleListViewController {
+  NSArray *_cellTitles;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,6 +31,14 @@
 {
   [super viewDidLoad];
   [self setTitle:@"Stretchable header tab view"];
+  
+  _cellTitles =
+  @[@"Sample",
+    @"No NavigationBar",
+    @"No bounce",
+    @"No header",
+    @"No horizontal swipe header",
+    ];
   
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"list-cell"];
 }
@@ -47,19 +58,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 4;
+  return _cellTitles.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"list-cell" forIndexPath:indexPath];
   [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-  [cell.textLabel setText:
-   @[@"Sample",
-     @"Sample with no NavigationBar",
-     @"Sample with no bounce",
-     @"Sample with no header view",
-     ][indexPath.row]];
+  [cell.textLabel setText:_cellTitles[indexPath.row]];
   return cell;
 }
 
@@ -85,6 +91,11 @@
     }
     case 3: {
       AXSampleNoHeaderTabViewController *tabViewCon = [[AXSampleNoHeaderTabViewController alloc] init];
+      [self.navigationController pushViewController:tabViewCon animated:YES];
+      break;
+    }
+    case 4: {
+      AXSampleNoSwipableTabViewController *tabViewCon = [[AXSampleNoSwipableTabViewController alloc] init];
       [self.navigationController pushViewController:tabViewCon animated:YES];
       break;
     }

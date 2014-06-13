@@ -43,11 +43,15 @@
   UIView *targetView = [super hitTest:point withEvent:event];
   if (!targetView) {
     return nil;
-  } else if (targetView == self) {
-    return nil;
   }
   
-  NSArray *interactiveSubviews = [self.delegate interactiveSubviewsInStretchableHeaderView:self];
+  NSArray *interactiveSubviews;
+  if ([self.delegate respondsToSelector:@selector(interactiveSubviewsInStretchableHeaderView:)]) {
+    interactiveSubviews = [self.delegate interactiveSubviewsInStretchableHeaderView:self];
+  } else {
+    return targetView;
+  }
+  
   if ([interactiveSubviews containsObject:self]) {
     return targetView;
   }

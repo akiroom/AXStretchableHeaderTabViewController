@@ -5,7 +5,7 @@
 
 #import "AXStretchableHeaderView.h"
 
-@interface AXSampleHeaderView : AXStretchableHeaderView <AXStretchableHeaderViewDelegate>
+@interface AXSampleSwipableHeaderView : AXStretchableHeaderView <AXStretchableHeaderViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

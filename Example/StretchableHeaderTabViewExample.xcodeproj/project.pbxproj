@@ -29,8 +29,11 @@
 		754814FA19323CC800CFD342 /* AXSampleTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754814F819323CC800CFD342 /* AXSampleTabViewController.m */; };
 		75481502193241A800CFD342 /* sample-photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75481501193241A800CFD342 /* sample-photo.jpg */; };
 		757BA7B219338CC3006ADDAF /* AXSampleNavBarTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 757BA7B119338CC3006ADDAF /* AXSampleNavBarTabViewController.m */; };
-		759D088E1935BEEB00E930BD /* AXSampleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D088D1935BEEB00E930BD /* AXSampleHeaderView.m */; };
-		75A68DEB1935CBFD00C753FF /* AXSampleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A68DEA1935CBFD00C753FF /* AXSampleHeaderView.xib */; };
+		7584B665194A86C900AEE4DF /* AXSampleNoSwipableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584B664194A86C900AEE4DF /* AXSampleNoSwipableHeaderView.m */; };
+		7584B667194A86ED00AEE4DF /* AXSampleNoSwipableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7584B666194A86ED00AEE4DF /* AXSampleNoSwipableHeaderView.xib */; };
+		7584B66A194A875F00AEE4DF /* AXSampleNoSwipableTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584B669194A875F00AEE4DF /* AXSampleNoSwipableTabViewController.m */; };
+		759D088E1935BEEB00E930BD /* AXSampleSwipableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D088D1935BEEB00E930BD /* AXSampleSwipableHeaderView.m */; };
+		75A68DEB1935CBFD00C753FF /* AXSampleSwipableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A68DEA1935CBFD00C753FF /* AXSampleSwipableHeaderView.xib */; };
 		7777FECBD35D45B6935E3121 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E2F7A94B9542CEA1F1CC2F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -80,9 +83,14 @@
 		75481501193241A800CFD342 /* sample-photo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sample-photo.jpg"; sourceTree = "<group>"; };
 		757BA7B019338CC3006ADDAF /* AXSampleNavBarTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleNavBarTabViewController.h; sourceTree = "<group>"; };
 		757BA7B119338CC3006ADDAF /* AXSampleNavBarTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleNavBarTabViewController.m; sourceTree = "<group>"; };
-		759D088C1935BEEB00E930BD /* AXSampleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleHeaderView.h; sourceTree = "<group>"; };
-		759D088D1935BEEB00E930BD /* AXSampleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleHeaderView.m; sourceTree = "<group>"; };
-		75A68DEA1935CBFD00C753FF /* AXSampleHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AXSampleHeaderView.xib; sourceTree = "<group>"; };
+		7584B663194A86C900AEE4DF /* AXSampleNoSwipableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleNoSwipableHeaderView.h; sourceTree = "<group>"; };
+		7584B664194A86C900AEE4DF /* AXSampleNoSwipableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleNoSwipableHeaderView.m; sourceTree = "<group>"; };
+		7584B666194A86ED00AEE4DF /* AXSampleNoSwipableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AXSampleNoSwipableHeaderView.xib; sourceTree = "<group>"; };
+		7584B668194A875F00AEE4DF /* AXSampleNoSwipableTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleNoSwipableTabViewController.h; sourceTree = "<group>"; };
+		7584B669194A875F00AEE4DF /* AXSampleNoSwipableTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleNoSwipableTabViewController.m; sourceTree = "<group>"; };
+		759D088C1935BEEB00E930BD /* AXSampleSwipableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleSwipableHeaderView.h; sourceTree = "<group>"; };
+		759D088D1935BEEB00E930BD /* AXSampleSwipableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleSwipableHeaderView.m; sourceTree = "<group>"; };
+		75A68DEA1935CBFD00C753FF /* AXSampleSwipableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AXSampleSwipableHeaderView.xib; sourceTree = "<group>"; };
 		77E2F7A94B9542CEA1F1CC2F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE287AB09714778AADFE7FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,9 +168,8 @@
 		75101E7519370B3E00AE76E8 /* Header View */ = {
 			isa = PBXGroup;
 			children = (
-				759D088C1935BEEB00E930BD /* AXSampleHeaderView.h */,
-				759D088D1935BEEB00E930BD /* AXSampleHeaderView.m */,
-				75A68DEA1935CBFD00C753FF /* AXSampleHeaderView.xib */,
+				7584B661194A85D800AEE4DF /* Swipable header view */,
+				7584B660194A85C800AEE4DF /* No swipe header view */,
 			);
 			name = "Header View";
 			sourceTree = "<group>";
@@ -272,10 +279,40 @@
 				754814DD19323A9400CFD342 /* Sub View Controllers */,
 				75101E7319370B0400AE76E8 /* TabVC (no bounce) */,
 				75101E7419370B1000AE76E8 /* TabVC (no header) */,
+				7584B662194A869D00AEE4DF /* TabVC (no swipe) */,
 				75101E7119370ADC00AE76E8 /* TabVC (with Nav Bar) */,
 				75101E7219370AF000AE76E8 /* TabVC (without Nav Bar) */,
 			);
 			name = "Sample Tab View Controller";
+			sourceTree = "<group>";
+		};
+		7584B660194A85C800AEE4DF /* No swipe header view */ = {
+			isa = PBXGroup;
+			children = (
+				7584B663194A86C900AEE4DF /* AXSampleNoSwipableHeaderView.h */,
+				7584B664194A86C900AEE4DF /* AXSampleNoSwipableHeaderView.m */,
+				7584B666194A86ED00AEE4DF /* AXSampleNoSwipableHeaderView.xib */,
+			);
+			name = "No swipe header view";
+			sourceTree = "<group>";
+		};
+		7584B661194A85D800AEE4DF /* Swipable header view */ = {
+			isa = PBXGroup;
+			children = (
+				759D088C1935BEEB00E930BD /* AXSampleSwipableHeaderView.h */,
+				759D088D1935BEEB00E930BD /* AXSampleSwipableHeaderView.m */,
+				75A68DEA1935CBFD00C753FF /* AXSampleSwipableHeaderView.xib */,
+			);
+			name = "Swipable header view";
+			sourceTree = "<group>";
+		};
+		7584B662194A869D00AEE4DF /* TabVC (no swipe) */ = {
+			isa = PBXGroup;
+			children = (
+				7584B668194A875F00AEE4DF /* AXSampleNoSwipableTabViewController.h */,
+				7584B669194A875F00AEE4DF /* AXSampleNoSwipableTabViewController.m */,
+			);
+			name = "TabVC (no swipe)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,9 +393,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7584B667194A86ED00AEE4DF /* AXSampleNoSwipableHeaderView.xib in Resources */,
 				75481502193241A800CFD342 /* sample-photo.jpg in Resources */,
 				754814A9193234F400CFD342 /* InfoPlist.strings in Resources */,
-				75A68DEB1935CBFD00C753FF /* AXSampleHeaderView.xib in Resources */,
+				75A68DEB1935CBFD00C753FF /* AXSampleSwipableHeaderView.xib in Resources */,
 				754814B1193234F400CFD342 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,13 +452,15 @@
 				75101E141935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m in Sources */,
 				754814AB193234F400CFD342 /* main.m in Sources */,
 				754814E319323ABF00CFD342 /* AXSub2TableViewController.m in Sources */,
-				759D088E1935BEEB00E930BD /* AXSampleHeaderView.m in Sources */,
+				759D088E1935BEEB00E930BD /* AXSampleSwipableHeaderView.m in Sources */,
 				754814FA19323CC800CFD342 /* AXSampleTabViewController.m in Sources */,
 				75101E6E19370AC100AE76E8 /* AXEmptyViewController.m in Sources */,
 				754814E019323AA400CFD342 /* AXSub1TableViewController.m in Sources */,
 				757BA7B219338CC3006ADDAF /* AXSampleNavBarTabViewController.m in Sources */,
 				754814AF193234F400CFD342 /* AXAppDelegate.m in Sources */,
 				754814E619323ADF00CFD342 /* AXSub3ViewController.m in Sources */,
+				7584B665194A86C900AEE4DF /* AXSampleNoSwipableHeaderView.m in Sources */,
+				7584B66A194A875F00AEE4DF /* AXSampleNoSwipableTabViewController.m in Sources */,
 				75101E5E1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m in Sources */,
 				754814DC1932394E00CFD342 /* AXSampleListViewController.m in Sources */,
 			);

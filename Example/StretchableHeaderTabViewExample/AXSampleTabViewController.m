@@ -7,7 +7,7 @@
 #import "AXSub1TableViewController.h"
 #import "AXSub2TableViewController.h"
 #import "AXSub3ViewController.h"
-#import "AXSampleHeaderView.h"
+#import "AXSampleSwipableHeaderView.h"
 
 @interface AXSampleTabViewController ()
 
@@ -19,7 +19,7 @@
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-    AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
+    AXSampleSwipableHeaderView *headerView = [[AXSampleSwipableHeaderView alloc] init];
     self.headerView = headerView;
     
     AXSub1TableViewController *sub1ViewCon = [[AXSub1TableViewController alloc] init];
@@ -39,7 +39,7 @@
   self.headerView.minimumOfHeight = 64.0;
   self.headerView.maximumOfHeight =  220.0;
   
-  AXSampleHeaderView *headerView = (id)self.headerView;
+  AXSampleSwipableHeaderView *headerView = (id)self.headerView;
   headerView.textLabel.text = @"The Duomo in Firenze";
   headerView.imageView.image = [UIImage imageNamed:@"sample-photo.jpg"];
   [headerView.backButton setTitle:@"back" forState:UIControlStateNormal];

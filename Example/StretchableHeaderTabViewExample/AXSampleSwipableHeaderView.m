@@ -3,9 +3,9 @@
 //  StretchableHeaderTabViewExample
 //
 
-#import "AXSampleHeaderView.h"
+#import "AXSampleSwipableHeaderView.h"
 
-@implementation AXSampleHeaderView {
+@implementation AXSampleSwipableHeaderView {
   NSArray *_interactiveSubviews;
 }
 
@@ -19,15 +19,6 @@
   }
   return self;
 }
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
 
 - (NSArray *)interactiveSubviewsInStretchableHeaderView:(AXStretchableHeaderView *)stretchableHeaderView
 {

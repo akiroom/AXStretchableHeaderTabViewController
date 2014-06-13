@@ -6,7 +6,7 @@
 #import "AXSampleNoBounceTabViewController.h"
 #import "AXSub1TableViewController.h"
 #import "AXSub2TableViewController.h"
-#import "AXSampleHeaderView.h"
+#import "AXSampleSwipableHeaderView.h"
 
 @interface AXSampleNoBounceTabViewController ()
 
@@ -20,7 +20,7 @@
   if (self) {
     self.title = @"No Bounce";
     
-    AXSampleHeaderView *headerView = [[AXSampleHeaderView alloc] init];
+    AXSampleSwipableHeaderView *headerView = [[AXSampleSwipableHeaderView alloc] init];
     
     // THIS IS THE POINT IN THIS FILE.
     headerView.bounces = NO;
@@ -44,7 +44,7 @@
   self.headerView.minimumOfHeight = 64.0;
   self.headerView.maximumOfHeight =  220.0;
   
-  AXSampleHeaderView *headerView = (id)self.headerView;
+  AXSampleSwipableHeaderView *headerView = (id)self.headerView;
   headerView.textLabel.text = @"The Duomo in Firenze";
   headerView.imageView.image = [UIImage imageNamed:@"sample-photo.jpg"];
   [headerView.backButton setTitle:@"back" forState:UIControlStateNormal];
