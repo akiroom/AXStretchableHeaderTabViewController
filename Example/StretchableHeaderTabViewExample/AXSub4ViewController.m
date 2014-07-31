@@ -80,8 +80,6 @@
 
 - (UIScrollView *)stretchableSubViewInSubViewController:(id)subViewController
 {
-  NSLog(@"%@", NSStringFromCGRect(self.view.frame));
-  NSLog(@"%@", NSStringFromCGRect(_tableView.frame));
   return _tableView;
 }
 
