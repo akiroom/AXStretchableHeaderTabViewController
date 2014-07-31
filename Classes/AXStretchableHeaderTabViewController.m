@@ -5,6 +5,8 @@
 
 #import "AXStretchableHeaderTabViewController.h"
 
+static NSString * const AXStretchableHeaderTabViewControllerSelectedIndexKey = @"selectedIndex";
+
 @interface AXStretchableHeaderTabViewController ()
 
 @end
@@ -82,7 +84,7 @@
     return;
   }
   if (newIndex != _selectedIndex) {
-    _selectedIndex = newIndex;
+    [self changeSelectedIndex:newIndex];
   }
 }
 
@@ -132,7 +134,9 @@
     
     // tab bar
     [_tabBar setSelectedItem:[_tabBar.items firstObject]];
-    _selectedIndex = 0;
+    if (_selectedIndex != 0) {
+      [self changeSelectedIndex:0];
+    }
   }
 }
 
@@ -285,9 +289,12 @@
 {
   if (scrollView.isDragging) {
     NSUInteger numberOfViewControllers = _viewControllers.count;
-    _selectedIndex = round(scrollView.contentOffset.x / scrollView.contentSize.width * numberOfViewControllers);
-    _selectedIndex = MIN(numberOfViewControllers - 1, MAX(0, _selectedIndex));
-    [_tabBar setSelectedItem:_tabBar.items[_selectedIndex]];
+    NSInteger newSelectedIndex = round(scrollView.contentOffset.x / scrollView.contentSize.width * numberOfViewControllers);
+    newSelectedIndex = MIN(numberOfViewControllers - 1, MAX(0, newSelectedIndex));
+    if (_selectedIndex != newSelectedIndex) {
+      [_tabBar setSelectedItem:_tabBar.items[newSelectedIndex]];
+      [self changeSelectedIndex:newSelectedIndex];
+    }
   }
 }
 
@@ -301,8 +308,11 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-  _selectedIndex = [[tabBar items] indexOfObject:item];
-  [_containerView setContentOffset:(CGPoint){_selectedIndex * CGRectGetWidth(_containerView.bounds), _containerView.contentOffset.y} animated:YES];
+  NSInteger newSelectedIndex = [[tabBar items] indexOfObject:item];
+  if (_selectedIndex != newSelectedIndex) {
+    [_containerView setContentOffset:(CGPoint){newSelectedIndex * CGRectGetWidth(_containerView.bounds), _containerView.contentOffset.y} animated:YES];
+    [self changeSelectedIndex:newSelectedIndex];
+  }
 }
 
 #pragma mark - Private Method
@@ -316,6 +326,15 @@
   } else {
     return nil;
   }
+}
+
+- (void)changeSelectedIndex:(NSInteger)selectedIndex
+{
+  [self willChangeValueForKey:@"selectedIndex"];
+  [self willChangeValueForKey:@"selectedViewController"];
+  _selectedIndex = selectedIndex;
+  [self didChangeValueForKey:@"selectedIndex"];
+  [self didChangeValueForKey:@"selectedViewController"];
 }
 
 @end
