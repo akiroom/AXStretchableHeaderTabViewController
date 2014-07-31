@@ -1,5 +1,9 @@
 # AXStretchableHeaderTabViewController CHANGELOG
 
+## 0.2.0
+
+Feature: The KVO is available for selectedIndex and selectedViewController properties.
+
 ## 0.1.9
 
 Feature: AXStretchableSubViewControllerViewSource protocol is available to set scroll view.
