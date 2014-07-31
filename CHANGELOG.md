@@ -1,5 +1,9 @@
 # AXStretchableHeaderTabViewController CHANGELOG
 
+## 0.1.9
+
+Feature: AXStretchableSubViewControllerViewSource protocol is available to set scroll view.
+
 ## 0.1.8
 
 Feature: No swipable header is default. Look at "No horizontal swipe header" example.
