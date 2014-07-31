@@ -7,6 +7,7 @@
 #import "AXSub1TableViewController.h"
 #import "AXSub2TableViewController.h"
 #import "AXSub3ViewController.h"
+#import "AXSub4ViewController.h"
 #import "AXSampleSwipableHeaderView.h"
 
 @interface AXSampleNavBarTabViewController ()
@@ -27,8 +28,9 @@
     AXSub1TableViewController *sub1ViewCon = [[AXSub1TableViewController alloc] init];
     AXSub2TableViewController *sub2ViewCon = [[AXSub2TableViewController alloc] init];
     AXSub3ViewController *sub3ViewCon = [[AXSub3ViewController alloc] init];
+    AXSub4ViewController *sub4ViewCon = [[AXSub4ViewController alloc] init];
     
-    NSArray *viewControllers = @[sub1ViewCon, sub2ViewCon, sub3ViewCon];
+    NSArray *viewControllers = @[sub1ViewCon, sub2ViewCon, sub3ViewCon, sub4ViewCon];
     self.viewControllers = viewControllers;
   }
   return self;

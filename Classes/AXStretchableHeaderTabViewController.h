@@ -7,6 +7,13 @@
 #import "AXStretchableHeaderView.h"
 #import "AXTabBar.h"
 
+@class AXStretchableHeaderTabViewController;
+
+@protocol AXStretchableSubViewControllerViewSource <NSObject>
+@optional
+- (UIScrollView *)stretchableSubViewInSubViewController:(id)subViewController;
+@end
+
 @interface AXStretchableHeaderTabViewController : UIViewController <UIScrollViewDelegate, AXTabBarDelegate>
 @property (nonatomic) NSUInteger selectedIndex;
 @property (readwrite, nonatomic) UIViewController *selectedViewController;
