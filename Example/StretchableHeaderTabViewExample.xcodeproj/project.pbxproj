@@ -10,6 +10,7 @@
 		75101E141935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75101E131935F7C500AE76E8 /* AXSampleNoBounceTabViewController.m */; };
 		75101E5E1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75101E5D1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m */; };
 		75101E6E19370AC100AE76E8 /* AXEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75101E6D19370AC100AE76E8 /* AXEmptyViewController.m */; };
+		753E4CE6196148420051BFE2 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753E4CE5196148420051BFE2 /* Reveal.framework */; };
 		7548149F193234F400CFD342 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7548149E193234F400CFD342 /* Foundation.framework */; };
 		754814A1193234F400CFD342 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754814A0193234F400CFD342 /* CoreGraphics.framework */; };
 		754814A3193234F400CFD342 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754814A2193234F400CFD342 /* UIKit.framework */; };
@@ -34,6 +35,7 @@
 		7584B66A194A875F00AEE4DF /* AXSampleNoSwipableTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584B669194A875F00AEE4DF /* AXSampleNoSwipableTabViewController.m */; };
 		759D088E1935BEEB00E930BD /* AXSampleSwipableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D088D1935BEEB00E930BD /* AXSampleSwipableHeaderView.m */; };
 		75A68DEB1935CBFD00C753FF /* AXSampleSwipableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A68DEA1935CBFD00C753FF /* AXSampleSwipableHeaderView.xib */; };
+		75CA85621989DB34006EC828 /* AXSub4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CA85611989DB34006EC828 /* AXSub4ViewController.m */; };
 		7777FECBD35D45B6935E3121 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E2F7A94B9542CEA1F1CC2F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,7 @@
 		75101E5D1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleNoHeaderTabViewController.m; sourceTree = "<group>"; };
 		75101E6C19370AC100AE76E8 /* AXEmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXEmptyViewController.h; sourceTree = "<group>"; };
 		75101E6D19370AC100AE76E8 /* AXEmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXEmptyViewController.m; sourceTree = "<group>"; };
+		753E4CE5196148420051BFE2 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "../../../../../Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<group>"; };
 		7548149B193234F400CFD342 /* StretchableHeaderTabViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StretchableHeaderTabViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7548149E193234F400CFD342 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		754814A0193234F400CFD342 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,6 +94,8 @@
 		759D088C1935BEEB00E930BD /* AXSampleSwipableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSampleSwipableHeaderView.h; sourceTree = "<group>"; };
 		759D088D1935BEEB00E930BD /* AXSampleSwipableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSampleSwipableHeaderView.m; sourceTree = "<group>"; };
 		75A68DEA1935CBFD00C753FF /* AXSampleSwipableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AXSampleSwipableHeaderView.xib; sourceTree = "<group>"; };
+		75CA85601989DB34006EC828 /* AXSub4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXSub4ViewController.h; sourceTree = "<group>"; };
+		75CA85611989DB34006EC828 /* AXSub4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXSub4ViewController.m; sourceTree = "<group>"; };
 		77E2F7A94B9542CEA1F1CC2F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE287AB09714778AADFE7FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +109,7 @@
 				754814A3193234F400CFD342 /* UIKit.framework in Frameworks */,
 				7548149F193234F400CFD342 /* Foundation.framework in Frameworks */,
 				7777FECBD35D45B6935E3121 /* libPods.a in Frameworks */,
+				753E4CE6196148420051BFE2 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +203,7 @@
 		7548149D193234F400CFD342 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				753E4CE5196148420051BFE2 /* Reveal.framework */,
 				7548149E193234F400CFD342 /* Foundation.framework */,
 				754814A0193234F400CFD342 /* CoreGraphics.framework */,
 				754814A2193234F400CFD342 /* UIKit.framework */,
@@ -269,6 +276,8 @@
 				754814E219323ABF00CFD342 /* AXSub2TableViewController.m */,
 				754814E419323ADF00CFD342 /* AXSub3ViewController.h */,
 				754814E519323ADF00CFD342 /* AXSub3ViewController.m */,
+				75CA85601989DB34006EC828 /* AXSub4ViewController.h */,
+				75CA85611989DB34006EC828 /* AXSub4ViewController.m */,
 			);
 			name = "Sub View Controllers";
 			sourceTree = "<group>";
@@ -459,6 +468,7 @@
 				757BA7B219338CC3006ADDAF /* AXSampleNavBarTabViewController.m in Sources */,
 				754814AF193234F400CFD342 /* AXAppDelegate.m in Sources */,
 				754814E619323ADF00CFD342 /* AXSub3ViewController.m in Sources */,
+				75CA85621989DB34006EC828 /* AXSub4ViewController.m in Sources */,
 				7584B665194A86C900AEE4DF /* AXSampleNoSwipableHeaderView.m in Sources */,
 				7584B66A194A875F00AEE4DF /* AXSampleNoSwipableTabViewController.m in Sources */,
 				75101E5E1936CE0F00AE76E8 /* AXSampleNoHeaderTabViewController.m in Sources */,
@@ -580,6 +590,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StretchableHeaderTabViewExample/StretchableHeaderTabViewExample-Prefix.pch";
 				INFOPLIST_FILE = "StretchableHeaderTabViewExample/StretchableHeaderTabViewExample-Info.plist";
@@ -594,6 +608,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StretchableHeaderTabViewExample/StretchableHeaderTabViewExample-Prefix.pch";
 				INFOPLIST_FILE = "StretchableHeaderTabViewExample/StretchableHeaderTabViewExample-Info.plist";
